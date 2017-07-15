@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn package'
-                archive 'target/WineTasters_CDAR_I.war' //制品路径需要修改
+                archive 'target/CDAR_I.war' //制品路径需要修改
             }
         }
         stage('Deploy') {
