@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>WineTasters</groupId>
-    <artifactId>WineTasters_I</artifactId>
+    <artifactId>CDAR_I</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!--项目默认编码 utf-8-->
