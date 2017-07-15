@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-        <finalName>CDAR_I</finalName>
+        <finalName>CDAR</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
