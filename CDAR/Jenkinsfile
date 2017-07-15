@@ -21,7 +21,7 @@ pipeline {
             steps { //所有的group1_demo需要修改
                 sh 'docker stop WineTasters_CDAR || true'
                 sh 'docker rm WineTasters_CDAR || true'
-                sh 'docker run --name WineTasters_CDAR -p 76667:8080 -d dordoka/tomcat' //端口11111需要修改
+                sh 'docker run --name WineTasters_CDAR -p 19996:8080 -d dordoka/tomcat' //端口11111需要修改
                 sh 'docker cp target/CDAR.war WineTasters_CDAR:/opt/tomcat/webapps/' //制品路径需要修改
             }
         }
