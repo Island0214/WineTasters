@@ -1,4 +1,4 @@
-package service;
+package util;
 
 /**
  * Created by Mark.W on 2017/7/16.

@@ -1,4 +1,4 @@
-package service;
+package util;
 
 import org.lionsoul.jcseg.extractor.impl.TextRankKeywordsExtractor;
 import org.lionsoul.jcseg.tokenizer.core.*;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 根据文本提取关键字
  * Created by Mark.W on 2017/7/16.
  */
 public class ExtractKeyword {
