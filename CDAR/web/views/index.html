@@ -13,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- css -->
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all" />
 <!--// css -->
 <!-- font-awesome icons -->
 <link href="../css/font-awesome.css" rel="stylesheet">
@@ -39,6 +40,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="banner">
 		<div class="header">
+			<div class="sign_in_logo">
+				<a href="" title="登录"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
+				|
+				<a href="" title="注册"><img src="../images/signup.png" alt="" width="25px" height="25px"></a>
+			</div>
 			<div class="container">
 				<div class="header-left">
 					<div class="w3layouts-logo">
@@ -66,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="nav navbar-nav">
 									<li><a class="active" href="index.html">首页</a></li>
 									<li><a href="#">民事案件</a></li>
-									<li><a href="#">上传案例</a></li>
+									<li><a href="#">查询类案</a></li>
 									<li class="dropdown">
 										<a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Pages 
 											<!-- <b class="caret"></b> -->
@@ -105,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //banner -->
 
 	<!-- footer -->
-	<footer>
+	<footer style="padding-top: 30px">
 		<div class="container">
 			<div class="w3-agileits-footer-grids">
 				<div class="col-md-3 w3ls-footer-grid">
@@ -162,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="http://wenshu.court.gov.cn/">中国裁判文书网</a></li>
 						<li><a href="http://law1.law-star.com/">法律之星官网-法律检索</a></li>
-						<li><a href="http://www.court.gov.cn/index.html">中华人民共和国最高人民法院</a></li>
+						<li><a href="http://www.court.gov.cn/index.html">最高人民法院</a></li>
 						<li><a href="http://www.chinacourt.org/index.shtml">中国法院网</a></li>
 						<li><a href="http://www.gov.cn/index.htm">中国政府网</a></li>						
 					</ul>
@@ -187,14 +193,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
+
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 				};
-			*/
+
 								
 			$().UItoTop({ easingType: 'easeOutQuart' });
 								
