@@ -1,0 +1,9 @@
+.sign_in_logo {
+    position: absolute;
+    right: 5%;
+    color: whitesmoke;
+}
+.sign_in_logo img {
+    /*max-width: 20%;*/
+    /*max-height: 20%;*/
+}
