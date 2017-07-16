@@ -10,6 +10,13 @@ import java.util.List;
 public interface DocumentDao {
 
     /**
+     * 根据 caseNumber 判断数据库中是否已有该案例
+     * @param caseNumber 唯一标识案件的number
+     * @return 是否存在
+     */
+    boolean checkDocument(String caseNumber);
+
+    /**
      * 存储案件信息
      * @param documentPO 案件PO
      * @return 是否成功

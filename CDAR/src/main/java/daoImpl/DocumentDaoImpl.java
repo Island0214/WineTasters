@@ -23,6 +23,11 @@ public class DocumentDaoImpl implements DocumentDao{
     }
 
     @Override
+    public boolean checkDocument(String caseNumber) {
+        return false;
+    }
+
+    @Override
     public boolean saveDocument(DocumentPO documentPO) {
         return false;
     }
