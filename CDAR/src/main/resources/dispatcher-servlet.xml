@@ -31,5 +31,4 @@
     <!--在实际开发中通常都需要配置 mvc:annotation-driven 标签-->
     <mvc:annotation-driven/>
 
-
 </beans>
