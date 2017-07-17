@@ -1,12 +1,24 @@
 #case_list {
     /*position: absolute;*/
     float: left;
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
     margin-left: 30px;
-    width: 76%;
-    top: 35%;
+    width: 77%;
+    margin-top: 5px;
 }
 
+.sort_buttons {
+    border: 1px solid grey;
+    width: 98%;
+    height: 30px;
+    margin: 0 auto;
+}
+.date_button {
+    width: 100px;
+    background: rgba(127,95,0,.5);
+    padding: 1em;
+    color: whitesmoke;
+}
 .case_item {
     width: 98%;
     color: whitesmoke;

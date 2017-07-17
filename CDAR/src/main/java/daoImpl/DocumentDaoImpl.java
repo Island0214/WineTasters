@@ -23,8 +23,9 @@ public class DocumentDaoImpl implements DocumentDao{
     }
 
     @Override
-    public boolean checkDocument(String caseNumber) {
-        return false;
+    public DocumentPO getDocumentByCaseNumber(String caseNumber) {
+        String hql = "FROM entityPO.DocumentPO WHERE caseNumber = ?";
+        return (DocumentPO)getSession().createQuery(hql).setParameter(0, caseNumber).uniqueResult();
     }
 
     @Override
@@ -34,7 +35,10 @@ public class DocumentDaoImpl implements DocumentDao{
 
     @Override
     public boolean deleteDocument(Integer documentID) {
-        return false;
+        String hql = "FROM entityPO.DocumentPO WHERE id = ?";
+        DocumentPO documentPO = (DocumentPO)getSession().createQuery(hql).setParameter(0, documentID).uniqueResult();
+        getSession().delete(documentPO);
+        return true;
     }
 
     @Override

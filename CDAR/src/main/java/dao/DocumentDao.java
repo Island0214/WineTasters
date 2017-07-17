@@ -10,11 +10,11 @@ import java.util.List;
 public interface DocumentDao {
 
     /**
-     * 根据 caseNumber 判断数据库中是否已有该案例
+     * 根据 caseNumber 取出数据库中对应案例，若不存在则返回null
      * @param caseNumber 唯一标识案件的number
-     * @return 是否存在
+     * @return 案例的po或null
      */
-    boolean checkDocument(String caseNumber);
+    DocumentPO getDocumentByCaseNumber(String caseNumber);
 
     /**
      * 存储案件信息
