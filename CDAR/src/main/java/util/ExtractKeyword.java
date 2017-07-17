@@ -2,6 +2,7 @@ package util;
 
 import org.lionsoul.jcseg.extractor.impl.TextRankKeywordsExtractor;
 import org.lionsoul.jcseg.tokenizer.core.*;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,9 +12,15 @@ import java.util.List;
  * 根据文本提取关键字
  * Created by Mark.W on 2017/7/16.
  */
+@Service("extractKeyword")
 public class ExtractKeyword {
 
     public List<String> extractKeyword(String str) {
+
+        if(str == null) {
+            return null;
+        }
+
         JcsegTaskConfig tokenizerConfig = new JcsegTaskConfig(false);
         ADictionary dic = DictionaryFactory.createSingletonDictionary(tokenizerConfig);
         ISegment tokenizerSeg = null;
@@ -39,7 +46,7 @@ public class ExtractKeyword {
 
         if (temp != null) {
             for (String s : temp) {
-                if (!(s.equals("被告") || s.equals("原告") || s.equals("上述"))) {
+                if (!(s.equals("被告") || s.equals("原告") || s.equals("上述") || s.equals("没有"))) {
                    result.add(s);
                 }
             }
