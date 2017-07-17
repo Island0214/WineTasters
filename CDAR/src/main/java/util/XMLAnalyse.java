@@ -1,17 +1,13 @@
 package util;
 
 import entityPO.DocumentPO;
-import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
-import java.text.ParseException;
-import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,13 +24,14 @@ public class XMLAnalyse {
      * 读取xml文件
      * @param filepath 文件路径
      */
-    public static void readXMLFile(String filepath){
+    public static DocumentPO readXMLFile(String filepath){
         try {
             Document document = reader.read(new File(filepath));
             Element root = document.getRootElement();
             DocumentPO documentPO = new DocumentPO();
             listNodes(root,documentPO);
             System.out.println(documentPO);
+            return documentPO;
         } catch (DocumentException e) {
             e.printStackTrace();
         }
