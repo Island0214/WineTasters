@@ -34,6 +34,8 @@ public class DocumentPO {
     //全文、裁判分析过程、法律法条名称
     //形如"《中华人民共和国侵权责任法》:第六条、第十六条/《最高人民法院关于确定民事侵权精神损害赔偿责任若干问题的解释》:第八条"
     private String evidence;
+    //裁决理由（裁判分析过程+裁判结果）
+    private String judgeReason;
     //关键词，以/分割
     private String keywords;
 
@@ -137,6 +139,14 @@ public class DocumentPO {
         this.keywords = keywords;
     }
 
+    public String getJudgeReason() {
+        return judgeReason;
+    }
+
+    public void setJudgeReason(String judgeReason) {
+        this.judgeReason = judgeReason;
+    }
+
     @Override
     public String toString() {
         return "DocumentPO{" +
@@ -151,6 +161,7 @@ public class DocumentPO {
                 ", litigant='" + litigant + '\'' +
                 ", situation='" + situation + '\'' +
                 ", evidence='" + evidence + '\'' +
+                ", judgeReason='" + judgeReason + '\'' +
                 ", keywords='" + keywords + '\'' +
                 '}';
     }
