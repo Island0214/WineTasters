@@ -13,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- css -->
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all" />
 <!--// css -->
 <!-- font-awesome icons -->
 <link href="../css/font-awesome.css" rel="stylesheet">
@@ -39,11 +40,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="banner">
 		<div class="header">
+			<div class="sign_in_logo">
+				<a href="" title="登录"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
+				|
+				<a href="" title="注册"><img src="../images/signup.png" alt="" width="25px" height="25px"></a>
+			</div>
 			<div class="container">
 				<div class="header-left">
 					<div class="w3layouts-logo">
 						<h1>
-							<a href="index.html"><span>CDAR法院类案推荐系统</span></a>
+							<a href="index.html">CDAR<span>法院类案推荐系统</span></a>
 						</h1>
 					</div>
 				</div>
@@ -66,9 +72,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="nav navbar-nav">
 									<li><a class="active" href="index.html">首页</a></li>
 									<li><a href="#">民事案件</a></li>
-									<li><a href="#">上传案例</a></li>
+									<li><a href="#">查询类案</a></li>
 									<li class="dropdown">
-										<a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Pages 
+										<a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
 											<!-- <b class="caret"></b> -->
 										</a>
 										<!-- <ul class="dropdown-menu">
@@ -105,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //banner -->
 
 	<!-- footer -->
-	<footer>
+	<footer style="padding-top: 30px">
 		<div class="container">
 			<div class="w3-agileits-footer-grids">
 				<div class="col-md-3 w3ls-footer-grid">
@@ -153,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>本站 <span>导航</span></h4>
 					<ul>
 						<li><a href="about.html">民事案件</a></li>
-						<li><a href="gallery.html">上传案例</a></li>
+						<li><a href="gallery.html">查询类案</a></li>
 						<li><a href="icons.html">Icons</a></li>
 					</ul>
 				</div>
@@ -164,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="http://law1.law-star.com/">法律之星官网-法律检索</a></li>
 						<li><a href="http://www.court.gov.cn/index.html">中华人民共和国最高人民法院</a></li>
 						<li><a href="http://www.chinacourt.org/index.shtml">中国法院网</a></li>
-						<li><a href="http://www.gov.cn/index.htm">中国政府网</a></li>						
+						<li><a href="http://www.gov.cn/index.htm">中国政府网_中央人民政府</a></li>
 					</ul>
 					
 				</div>
@@ -187,14 +193,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
+
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 				};
-			*/
+
 								
 			$().UItoTop({ easingType: 'easeOutQuart' });
 								
