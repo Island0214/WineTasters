@@ -1,7 +1,13 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CDAR法院类案推荐系统</title>
+<title>CDAR-民事案件</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Agrico Farm Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -12,8 +18,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--// bootstrap-css -->
 <!-- css -->
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
-<link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/searchForm2.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all" />
+<link href="../css/accordion.css" rel="stylesheet" type="text/css" media="all" />
 <!--// css -->
 <!-- font-awesome icons -->
 <link href="../css/font-awesome.css" rel="stylesheet">
@@ -58,58 +65,101 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">
 				<div class="top-nav">
-						<nav class="navbar navbar-default">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								<ul class="nav navbar-nav">
-									<li><a class="active" href="index.html">首页</a></li>
-									<li><a href="#">民事案件</a></li>
-									<li><a href="#">查询类案</a></li>
-									<li class="dropdown">
-										<a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
-											<!-- <b class="caret"></b> -->
-										</a>
-										<!-- <ul class="dropdown-menu">
-											<li><a href="#">Icons</a></li>
-											<li><a href="#">Short Codes</a></li>
-										</ul> -->
-									</li>
-									<li><a href="#">Contact</a></li>
-								</ul>	
-								<div class="clearfix"> </div>
-							</div>	
-						</nav>		
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a class="active" href="index.html">首页</a></li>
+								<li><a href="#">民事案件</a></li>
+								<li><a href="#">查询类案</a></li>
+								<li class="dropdown">
+									<a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
+										<!-- <b class="caret"></b> -->
+									</a>
+									<!-- <ul class="dropdown-menu">
+                                        <li><a href="#">Icons</a></li>
+                                        <li><a href="#">Short Codes</a></li>
+                                    </ul> -->
+								</li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</nav>
 				</div>
-				<!-- w3-banner -->
-				<div class="w3-banner">
-					<!-- <div class="w3layouts-border"> </div>
-					<h2>Lorem ipsum <span>dolor</span></h2>
-					<p>Nunc vel efficitur sem, sed convallis mi. Praesent <span>sollicitudin aliquam eros</span></p>
-					<div class="w3layouts-border agileits-border"> </div> -->
+				<!-- agileits-top-heading -->
+				<div class="agileits-top-heading">
 					<div class="search">
 						<i> </i>
 						<div class="s-bar">
-						   <form>
-							<input type="text" value="请输入案例关键字" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入案例关键字';}">
-							<input type="submit"  value="搜索"/>
-						  </form>
+							<form>
+								<input type="text" value="请输入案例关键字" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入案例关键字';}">
+								<input type="submit"  value="搜索"/>
+							</form>
 						</div>
 					</div>
 				</div>
-				<!-- //w3-banner -->
+				<!-- //agileits-top-heading -->
 			</div>
 		</div>
 	</div>
 	<!-- //banner -->
+	<!-- cases -->
+	<!-- main-textgrids -->
+	<div class="main-textgrids" style="height: 800px">
+		<div class="container" style="height: 800px">
 
+			<!-- main accordion-->
+			<div class="main">
+				<!-- <h1>Flat Accordion Widget</h1> -->
+				<section class="ac-container">
+					<div>
+						<input id="ac-1" name="accordion-1" type="checkbox" />
+						<label for="ac-1" class="grid1">按关键字筛选</label>
+						<article class="ac-small">
+							<ul>
+								<li><a href="#">合同</a></li>
+								<li><a href="#">交通事故</a></li>
+								<li><a href="#">婚姻</a></li>
+								<li><a href="#">民间借贷</a></li>
+							</ul>
+						</article>
+					</div>
+					<div>
+						<input id="ac-2" name="accordion-1" type="checkbox" />
+						<label for="ac-2" class="grid2">Group Section</label>
+						<article class="ac-small">
+							<ul>
+								<li><a href="#">culpa qui deserunt</a></li>
+								<li><a href="#">deserunt mollit anim</a></li>
+								<li><a href="#">aute irure dolor in</a></li>
+								<li><a href="#">dolorem ipsum quia</a></li>
+							</ul>
+						</article>
+					</div>
+
+				</section>
+			</div>
+			<!-- main accordion-->
+			<div class="clearfix"> </div>
+			<div class="statements">
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //main-textgrids -->
+
+
+	<!-- //cases -->
 	<!-- footer -->
 	<footer style="padding-top: 30px">
 		<div class="container">
@@ -118,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>关于 <span>CDAR</span></h4>
 					<div class="wthree-footer-info">
 						<p>CDAR是通过采取关键字过滤的算法抽取司法案例关键信息，进行自然语义分析，
-						从而提供与待审判案件类似的案例推荐的信息系统.</p>
+							从而提供与待审判案件类似的案例推荐的信息系统.</p>
 						<ul>
 							<li><i class="fa fa-map-marker" aria-hidden="true"></i> : 江苏省南京市栖霞区仙林大道163号</li>
 							<li><i class="fa fa-phone" aria-hidden="true"></i> : +1 234 567 8910</li>
@@ -185,7 +235,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //copyright -->
-	<script src="../js/responsiveslides.min.js"></script>
 	<script src="../js/SmoothScroll.min.js"></script>
 	<script type="text/javascript" src="../js/move-top.js"></script>
 	<script type="text/javascript" src="../js/easing.js"></script>
@@ -193,12 +242,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear'
-				};
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear'
+			};
 
 								
 			$().UItoTop({ easingType: 'easeOutQuart' });
@@ -206,5 +255,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 	<!-- //here ends scrolling icon -->
+	<script src="../js/jarallax.js"></script>
+	<script type="text/javascript">
+				/* init Jarallax */
+				$('.jarallax').jarallax({
+					speed: 0.5,
+					imgWidth: 1366,
+					imgHeight: 768
+				})
+			</script>
 </body>	
 </html>
