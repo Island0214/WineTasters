@@ -136,4 +136,22 @@ public class DocumentPO {
     public void setKeywords(String keywords) {
         this.keywords = keywords;
     }
+
+    @Override
+    public String toString() {
+        return "DocumentPO{" +
+                "id=" + id +
+                ", originDocument='" + originDocument + '\'' +
+                ", court='" + court + '\'' +
+                ", caseNumber='" + caseNumber + '\'' +
+                ", property='" + property + '\'' +
+                ", reason='" + reason + '\'' +
+                ", process='" + process + '\'' +
+                ", endDate=" + endDate +
+                ", litigant='" + litigant + '\'' +
+                ", situation='" + situation + '\'' +
+                ", evidence='" + evidence + '\'' +
+                ", keywords='" + keywords + '\'' +
+                '}';
+    }
 }
