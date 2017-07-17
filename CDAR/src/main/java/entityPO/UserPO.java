@@ -1,5 +1,7 @@
 package entityPO;
 
+import entityVO.UserVO;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,17 +12,17 @@ import javax.persistence.Id;
  */
 @Entity
 public class UserPO {
-    private String id;
+    private Integer id;
     private String account;
     private String password;
 
     @Id
     @GeneratedValue
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,5 +42,13 @@ public class UserPO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserPO() {
+    }
+
+    public UserPO(UserVO userVO) {
+        this.account = userVO.getAccount();
+        this.password = userVO.getPassword();
     }
 }
