@@ -25,7 +25,7 @@ public class ManageServiceImpl implements ManageService {
 
     @Override
     public boolean deleteDocument(Integer documentID) {
-        return false;
+        return documentDao.deleteDocument(documentID);
     }
 
     @Override
