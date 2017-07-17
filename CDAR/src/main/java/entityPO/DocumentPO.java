@@ -49,7 +49,7 @@ public class DocumentPO {
         this.id = id;
     }
 
-    @Column(length = 10000)
+    @Column(length = 15000)
     public String getOriginDocument() {
         return originDocument;
     }
@@ -114,7 +114,7 @@ public class DocumentPO {
         this.evidence = evidence;
     }
 
-    @Column(length = 1000)
+    @Column(length = 10000)
     public String getSituation() {
         return situation;
     }
@@ -139,6 +139,7 @@ public class DocumentPO {
         this.keywords = keywords;
     }
 
+    @Column(length = 10000)
     public String getJudgeReason() {
         return judgeReason;
     }

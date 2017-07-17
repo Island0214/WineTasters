@@ -1,13 +1,19 @@
 package util;
 
+import dao.DocumentDao;
+import daoImpl.DocumentDaoImpl;
 import entityPO.DocumentPO;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import java.io.File;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -67,7 +73,9 @@ public class XMLAnalyse {
         else if (node.getName().equals("CPSJ")) {
             //可能会有"2Ｏ1Ｏ年12月16日"、"本件与原件核对无异2008年4月10日"、"2ОО9年12月25日"(O->0)
             try {
-                documentPO.setEndDate(DateTransformer.stringToDate(node.attributeValue("value").replace("Ｏ", "0").replace("О", "0").replace("廿", "2").replace("卅", "3").replace("元", "1").replace("…", "1").replace("农", "").replaceAll("^.*(\\d{4}.*)", "$1")));
+                Date date = DateTransformer.stringToDate(node.attributeValue("value").replace("Ｏ", "0").replace("О", "0").replace("廿", "2").replace("卅", "3").replace("元", "1").replace("…", "1").replace("农", "").replaceAll("^.*(\\d{4}.*)", "$1"));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                documentPO.setEndDate(sdf.format(date));
             }catch (ParseException e){
                 //"第40条公民在遗书中涉及死后个人财产处分的内容，确为死者真实意思的表示，有本人签名并注明了年、月1日"
                 //如上则date为null
@@ -155,6 +163,8 @@ public class XMLAnalyse {
     }
 
     public static void main(String[] args) throws ParseException, DocumentException {
+        ApplicationContext context = ApplicationContextHelper.getApplicationContext();
+        DocumentDao documentDao = context.getBean(DocumentDao.class);
         String path = "src/main/java/test";
         File root = new File(path);
         File[] folders = root.listFiles();
@@ -165,7 +175,7 @@ public class XMLAnalyse {
             }
             File[] files = folder.listFiles();
             for (File file : files) {
-                XMLAnalyse.readXMLFile(file.getPath());
+                documentDao.saveDocument(XMLAnalyse.readXMLFile(file.getPath()));
             }
         }
     }
