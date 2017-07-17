@@ -9,16 +9,11 @@ import java.util.Date;
  * Created by qianzhihao on 2017/7/17.
  */
 public class DateTransformer {
+
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日");
 
-    public static Date stringToDate(String str){
-        Date res = null;
-        try {
-            res =  sdf.parse(str.replace("null","1").replace("\t","1"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return res;
+    public static Date stringToDate(String str) throws ParseException {
+        return sdf.parse(str.replace("null","1").replace("\t","1"));
     }
 
     public static String dateToString(Date date){

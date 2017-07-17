@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.text.ParseException;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,23 +25,16 @@ public class XMLAnalyse {
      * 读取xml文件
      * @param filepath 文件路径
      */
-    public static DocumentPO readXMLFile(String filepath){
-        DocumentPO documentPO = null;
-        try {
-            Document document = reader.read(new File(filepath));
-            Element root = document.getRootElement();
-            documentPO = new DocumentPO();
-            listNodes(root,documentPO);
-            System.out.println(documentPO);
-
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
+    public static DocumentPO readXMLFile(String filepath) throws DocumentException, ParseException {
+        DocumentPO documentPO = new DocumentPO();
+        Document document = reader.read(new File(filepath));
+        Element root = document.getRootElement();
+        listNodes(root, documentPO);
         return documentPO;
     }
 
     //遍历当前节点下的所有节点
-    private static void listNodes(Element node, DocumentPO documentPO){
+    private static void listNodes(Element node, DocumentPO documentPO) throws ParseException {
         //全文
         if(node.getName().equals("QW")){
             documentPO.setOriginDocument(node.attributeValue("value"));
@@ -119,30 +113,12 @@ public class XMLAnalyse {
             documentPO.setEvidence(res);
         }
 
-
-
         //同时迭代当前节点下面的所有子节点
         //使用递归
         Iterator<Element> iterator = node.elementIterator();
         while(iterator.hasNext()){
             Element e = iterator.next();
             listNodes(e,documentPO);
-        }
-    }
-
-    public static void main(String[] args) {
-        String path = "src/main/java/test";
-        File root = new File(path);
-        File[] folders = root.listFiles();
-        for(File folder:folders){
-            //去除隐藏文件
-            if(folder.getName().startsWith(".")){
-                continue;
-            }
-            File[] files = folder.listFiles();
-            for(File file:files){
-                XMLAnalyse.readXMLFile(file.getPath());
-            }
         }
     }
 }
