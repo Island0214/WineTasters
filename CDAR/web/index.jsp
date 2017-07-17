@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.html">首页</a></li>
+                            <li><a class="active" href="index.jsp">首页</a></li>
                             <li><a href="#">民事案件</a></li>
                             <li><a href="#">查询类案</a></li>
                             <li class="dropdown">
@@ -116,8 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="s-bar">
                         <form>
                             <input type="text" value="请输入案例关键字" onfocus="if (this.value == '请输入案例关键字'){this.value = '';}"
-                                   onblur="if (this.value == '') {this.value = '请输入案例关键字';}">
-                            <input type="submit" value="搜索"/>
+                                   onblur="if (this.value == '') {this.value = '请输入案例关键字';}" id="textField">
+                            <input type="submit" value="搜索" onclick="search()"/>
                         </form>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <p style="margin-left: 0%; margin-top: 10%;">密码：</p>
                         <input type="password" style="margin-left: 0%; text-align: left; display: inline-block;" id="logInPassword">
                         <br>
-                        <input type="submit" value="登陆">
+                        <input type="submit" value="登陆" onclick="logIn()">
                     </div>
                 </div>
                 <div class="login" id="signinView" style="display: none">
@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <input type="password" style="margin-left: 0%; text-align: left; display: inline-block;" id="signInPassword">
                         <button onclick="showPassword()" style="margin-left: 0%; margin-top: 10%; background-image: url(images/closeEye.png)" id="eyeButton"></button>
                         <br>
-                        <input type="submit" value="注册">
+                        <input type="submit" value="注册" onclick="signIn()">
                     </div>
                 </div>
                 <!-- //w3-banner -->
