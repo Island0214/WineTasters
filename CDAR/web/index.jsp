@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="header-left">
                 <div class="w3layouts-logo">
                     <h1>
-                        <a href="index.html">CDAR<span>法院类案推荐系统</span></a>
+                        <a href="index.jsp">CDAR<span>法院类案推荐系统</span></a>
                     </h1>
                 </div>
             </div>
