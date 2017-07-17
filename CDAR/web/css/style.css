@@ -830,7 +830,7 @@ footer{
     font-family: 'Pacifico', cursive;
 }
 .main-textgrids {
-    padding:4em 0;
+    padding:2em 0;
 }
 .main-textgrids img {
     width: 100%;
@@ -854,18 +854,8 @@ ul.ab li a {
     font-size: 0.9em;
     text-decoration: none;
 }
-.statements {
-    margin-top: 4em;
-}
 ul.ab li a:hover{
 	color: #03A9F4;
-}
-.statements p{
-    line-height: 1.8em;
-    margin-bottom: 4%;
-    margin-top: 3%;
-    font-size: 0.9em;
-    color: #777;
 }
 .mission h4 {
     text-align: left;
