@@ -1,11 +1,13 @@
 package serviceImpl;
 
 import dao.DocumentDao;
+import entityPO.DocumentPO;
 import entityVO.DocumentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.AnalysisService;
 import util.ExtractKeyword;
+import util.TransferHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class AnalysisServiceImpl implements AnalysisService{
 
     @Override
     public List<DocumentVO> recommendByKeywords(List<String> keywords) {
-        return null;
+        List<DocumentPO> documentPOS = documentDao.getRecommendDocuments(keywords);
+        return TransferHelper.transToDocumentVOList(documentPOS);
     }
 }
