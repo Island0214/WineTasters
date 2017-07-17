@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="header-bottom">
-        <div class="container">
+        <div class="container" style="margin-top: 0">
             <div class="top-nav">
                 <nav class="navbar navbar-default">
                     <div class="navbar-header">
