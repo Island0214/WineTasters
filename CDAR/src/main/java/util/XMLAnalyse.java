@@ -25,16 +25,18 @@ public class XMLAnalyse {
      * @param filepath 文件路径
      */
     public static DocumentPO readXMLFile(String filepath){
+        DocumentPO documentPO = null;
         try {
             Document document = reader.read(new File(filepath));
             Element root = document.getRootElement();
-            DocumentPO documentPO = new DocumentPO();
+            documentPO = new DocumentPO();
             listNodes(root,documentPO);
             System.out.println(documentPO);
-            return documentPO;
+
         } catch (DocumentException e) {
             e.printStackTrace();
         }
+        return documentPO;
     }
 
     //遍历当前节点下的所有节点
