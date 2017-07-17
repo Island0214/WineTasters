@@ -4,20 +4,18 @@
     /*border: 1px solid grey;*/
     margin-left: 30px;
     width: 77%;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 .sort_buttons {
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
     width: 98%;
-    height: 30px;
+    height: 60px;
     margin: 0 auto;
 }
-.date_button {
-    width: 100px;
-    background: rgba(127,95,0,.5);
-    padding: 1em;
+.sort_buttons a {
     color: whitesmoke;
+    text-decoration: none;
 }
 .case_item {
     width: 98%;
