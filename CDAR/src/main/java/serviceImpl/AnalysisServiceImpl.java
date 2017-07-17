@@ -5,7 +5,9 @@ import entityVO.DocumentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.AnalysisService;
+import util.ExtractKeyword;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,10 +18,27 @@ public class AnalysisServiceImpl implements AnalysisService{
 
     @Autowired
     private DocumentDao documentDao;
+    
+    @Autowired
+    private ExtractKeyword extractKeyword;
 
     @Override
     public String analyseKeyWords(String text) {
-        return null;
+        List<String> strings = extractKeyword.extractKeyword(text);
+        StringBuffer result = new StringBuffer();
+        boolean first = true;
+        
+        for(String s:strings) {
+            if (first) {
+                result.append(s);
+                first = false;
+            }  else {
+                result.append("/");
+                result.append(s);
+            }
+        }
+        
+        return result.toString();
     }
 
     @Override
