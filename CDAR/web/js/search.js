@@ -21,3 +21,19 @@ function search() {
         }
     });
 }
+
+function upload() {
+    alert($('#file').val());
+    $.ajaxFileUpload({
+        url: '/manageAction/upload',
+        secureuri: false,
+        fileElementId: 'file',
+        dataType: 'json',
+        success: function (){
+            alert("上传成功");
+        },
+        error: function (){
+            alert("上传失败");
+        }
+    });
+}

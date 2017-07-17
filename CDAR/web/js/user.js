@@ -22,9 +22,8 @@ function logIn() {
         success: function (data) {
             // alert("ok");
             if (data.result == "success") {
-                alert(data.loginInfo);
                 closeLoginView();
-                setCookie("username", data.userInfo.username, "h1");
+                setCookie("username", username, "h1");
                 return;
             }
             if (data.result == "fail") {
@@ -67,12 +66,12 @@ function signIn() {
         success: function (data) {
             // alert("ok");
             if (data.result == "fail") {
-                alert(data.errorType);
+                alert(data.signinInfo);
             }
             if (data.result == "success") {
                 alert("注册成功");
                 closeSigninView();
-                setCookie("username", data.userInfo.username, "h1");
+                setCookie("username", username, "h1");
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
