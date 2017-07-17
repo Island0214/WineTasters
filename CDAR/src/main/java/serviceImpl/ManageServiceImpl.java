@@ -1,10 +1,12 @@
 package serviceImpl;
 
 import dao.DocumentDao;
+import entityPO.DocumentPO;
 import entityVO.DocumentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ManageService;
+import util.TransferHelper;
 
 import java.io.File;
 import java.util.List;
@@ -30,11 +32,13 @@ public class ManageServiceImpl implements ManageService {
 
     @Override
     public List<DocumentVO> getDocuments(String rex, int max) {
-        return null;
+        List<DocumentPO> documentPOS = documentDao.getDocuments(rex, max);
+        return TransferHelper.transToDocumentVOList(documentPOS);
     }
 
     @Override
     public List<DocumentVO> getDocuments(int n, String category) {
-        return null;
+        List<DocumentPO> documentPOS = documentDao.getDocuments(n, category);
+        return TransferHelper.transToDocumentVOList(documentPOS);
     }
 }
