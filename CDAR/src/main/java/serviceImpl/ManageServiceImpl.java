@@ -7,6 +7,7 @@ import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ManageService;
+import util.ExtractKeyword;
 import util.TransferHelper;
 import util.XMLAnalyse;
 
@@ -27,6 +28,7 @@ public class ManageServiceImpl implements ManageService {
     public boolean uploadDocument(File file) throws DocumentException {
         DocumentPO documentPO = XMLAnalyse.readXMLFile(file);
         if(documentDao.getDocumentByCaseNumber(documentPO.getCaseNumber())==null){
+            documentPO.setKeywords(new ExtractKeyword().extractKeyword(documentPO.getOriginDocument()));
             documentDao.saveDocument(documentPO);
             return true;
         }

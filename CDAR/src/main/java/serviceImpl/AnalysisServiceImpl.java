@@ -24,21 +24,7 @@ public class AnalysisServiceImpl implements AnalysisService{
     @Override
     public String analyseKeyWords(String text) {
         ExtractKeyword extractKeyword = new ExtractKeyword();
-        List<String> strings = extractKeyword.extractKeyword(text);
-        StringBuffer result = new StringBuffer();
-        boolean first = true;
-        
-        for(String s:strings) {
-            if (first) {
-                result.append(s);
-                first = false;
-            }  else {
-                result.append("/");
-                result.append(s);
-            }
-        }
-        
-        return result.toString();
+        return extractKeyword.extractKeyword(text);
     }
 
     @Override

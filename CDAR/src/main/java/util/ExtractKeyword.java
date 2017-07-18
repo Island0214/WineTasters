@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class ExtractKeyword {
 
-    public List<String> extractKeyword(String str) {
+    public String extractKeyword(String str) {
 
         if(str == null) {
             return null;
@@ -54,6 +54,22 @@ public class ExtractKeyword {
             return null;
         }
 
-        return result;
+        return join(result);
+    }
+
+    private String join(List<String> word){
+        StringBuffer result = new StringBuffer();
+        boolean first = true;
+
+        for(String s:word) {
+            if (first) {
+                result.append(s);
+                first = false;
+            }  else {
+                result.append("/");
+                result.append(s);
+            }
+        }
+        return result.toString();
     }
 }
