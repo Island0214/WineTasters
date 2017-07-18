@@ -17,7 +17,7 @@ public class XMLAnalyseTest {
     @Test
     public void readXMLFile() throws Exception {
         for (int i=1; i<=18; i++) {
-            DocumentPO documentPO = XMLAnalyse.readXMLFile("src/test/resources/xml/" + String.valueOf(i) + ".xml");
+            DocumentPO documentPO = XMLAnalyse.readXMLFile(new File("src/test/resources/xml/" + String.valueOf(i) + ".xml"));
             showDocumentPO(documentPO);
         }
     }

@@ -3,12 +3,15 @@ package serviceImpl;
 import dao.DocumentDao;
 import entityPO.DocumentPO;
 import entityVO.DocumentVO;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ManageService;
 import util.TransferHelper;
+import util.XMLAnalyse;
 
 import java.io.File;
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -21,7 +24,12 @@ public class ManageServiceImpl implements ManageService {
     private DocumentDao documentDao;
 
     @Override
-    public boolean uploadDocument(File file) {
+    public boolean uploadDocument(File file) throws DocumentException {
+        DocumentPO documentPO = XMLAnalyse.readXMLFile(file);
+        if(documentDao.getDocumentByCaseNumber(documentPO.getCaseNumber())==null){
+            documentDao.saveDocument(documentPO);
+            return true;
+        }
         return false;
     }
 
