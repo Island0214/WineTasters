@@ -3,7 +3,7 @@
 .a_demo_one {
 	display: inline;
 	cursor: pointer;
-	background-color:rgba(163,135,57,.3);
+	background-color:rgba(163,135,57,.2);
 	padding:10px;
 	position:relative;
 	left: 15px;
