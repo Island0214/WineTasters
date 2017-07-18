@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
  */
 public class XMLAnalyse {
     private static SAXReader reader = new SAXReader();
+    static int x = 0;
 
     public XMLAnalyse() {
     }
@@ -31,20 +32,21 @@ public class XMLAnalyse {
     /**
      * 读取xml文件
      *
-     * @param filepath 文件路径
+     * @param file 文件
      */
-    public static DocumentPO readXMLFile(String filepath) throws ParseException, DocumentException {
+    public static DocumentPO readXMLFile(File file) throws DocumentException {
         DocumentPO documentPO = null;
-        Document document = reader.read(new File(filepath));
+        Document document = reader.read(file);
         Element root = document.getRootElement();
         documentPO = new DocumentPO();
         listNodes(root, documentPO);
-        System.out.println(documentPO);
+        System.out.println(documentPO.getCaseNumber());
+        System.out.println(x++);
         return documentPO;
     }
 
     //遍历当前节点下的所有节点
-    private static void listNodes(Element node, DocumentPO documentPO) throws ParseException {
+    private static void listNodes(Element node, DocumentPO documentPO){
         //全文
         if (node.getName().equals("QW")) {
             documentPO.setOriginDocument(node.attributeValue("value"));
@@ -55,7 +57,7 @@ public class XMLAnalyse {
         }
         //案号
         else if (node.getName().equals("AH")) {
-            documentPO.setCaseNumber(node.attributeValue("value"));
+            documentPO.setCaseNumber(node.attributeValue("value").replace("(","（").replace(")","）"));
         }
         //案件性质
         else if (node.getName().equals("AJXZ")) {
@@ -169,13 +171,19 @@ public class XMLAnalyse {
         File root = new File(path);
         File[] folders = root.listFiles();
         for (File folder : folders) {
+            System.out.println("Folder:"+folder.getName());
             //去除隐藏文件
             if (folder.getName().startsWith(".")) {
                 continue;
             }
             File[] files = folder.listFiles();
             for (File file : files) {
-                documentDao.saveDocument(XMLAnalyse.readXMLFile(file.getPath()));
+                DocumentPO po = XMLAnalyse.readXMLFile(file);
+                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
+                    documentDao.saveDocument(po);
+                }
+
+//                XMLAnalyse.readXMLFile(file.getPath());
             }
         }
     }
