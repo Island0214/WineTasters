@@ -55,9 +55,6 @@ public class UserDaoImpl implements UserDao {
 
         session.close();
 
-        if(password.equals(userPO.getPassword()))
-            return true;
-        else
-            return false;
+        return password.equals(userPO.getPassword());
     }
 }
