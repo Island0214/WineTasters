@@ -4,6 +4,7 @@ import dao.DocumentDao;
 import entityPO.DocumentPO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +31,11 @@ public class DocumentDaoImpl implements DocumentDao{
 
     @Override
     public boolean saveDocument(DocumentPO documentPO) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.save(documentPO);
+        session.getTransaction().commit();
+        session.close();
         return false;
     }
 

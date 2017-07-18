@@ -1,5 +1,7 @@
 package entityPO;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,7 +51,7 @@ public class DocumentPO {
         this.id = id;
     }
 
-    @Column(length = 10000)
+    @Type(type = "text")
     public String getOriginDocument() {
         return originDocument;
     }
@@ -114,7 +116,7 @@ public class DocumentPO {
         this.evidence = evidence;
     }
 
-    @Column(length = 5000)
+    @Type(type = "text")
     public String getSituation() {
         return situation;
     }
@@ -139,7 +141,7 @@ public class DocumentPO {
         this.keywords = keywords;
     }
 
-    @Column(length = 5000)
+    @Type(type = "text")
     public String getJudgeReason() {
         return judgeReason;
     }
