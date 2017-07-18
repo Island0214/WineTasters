@@ -56,8 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner">
     <div class="header">
         <div class="sign_in_logo">
-            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px"
-                                                                     height="25px"></a>
+            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
             |
             <a href="#sign" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px"
                                                                        height="25px"></a>
