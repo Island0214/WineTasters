@@ -6,12 +6,16 @@ import org.lionsoul.jcseg.tokenizer.core.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 根据文本提取关键字
  * Created by Mark.W on 2017/7/16.
  */
 public class ExtractKeyword {
+
+    private static String NOT_INCLUDE = "被告原告上述没有出生汉族本院身份证判决";
 
     public String extractKeyword(String str) {
 
@@ -42,9 +46,11 @@ public class ExtractKeyword {
             e.printStackTrace();
         }
 
+        Pattern pattern = Pattern.compile("[0-9]+");
+
         if (temp != null) {
             for (String s : temp) {
-                if (!(s.equals("被告") || s.equals("原告") || s.equals("上述") || s.equals("没有"))) {
+                if (!NOT_INCLUDE.contains(s) && !pattern.matcher(str).matches()) {
                    result.add(s);
                 }
             }
@@ -58,7 +64,7 @@ public class ExtractKeyword {
     }
 
     private String join(List<String> word){
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         boolean first = true;
 
         for(String s:word) {
