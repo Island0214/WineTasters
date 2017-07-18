@@ -44,6 +44,10 @@
                 $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
             });
         });
+
+        $(document).ready(function () {
+            checkCookie();
+        });
     </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -53,11 +57,27 @@
 <!-- banner -->
 <div class="banner">
     <div class="header">
-        <div class="sign_in_logo">
-            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
+        <div id="preLog" class="sign_in_logo">
+            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px"
+                                                                     height="25px"></a>
             |
             <a href="#sign" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px"
                                                                        height="25px"></a>
+        </div>
+        <div id="afterLog" class="sign_in_logo" style="display: none">
+            <ul class="nav nav-pills">
+                <%--<li class="active"><a href="#">Home</a></li>--%>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span id="userNameLabel">asd</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" style="min-width: 100px;">
+                        <li><a href="#" onclick="quitLog()">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <div class="container">
             <div class="header-left">
@@ -131,7 +151,7 @@
                         <input type="password" style="margin-left: 0%; text-align: left; display: inline-block;"
                                id="logInPassword">
                         <br>
-                        <input type="submit" value="登陆" onclick="logIn()">
+                        <input type="submit" value="登陆" onclick="log()">
                     </div>
                 </div>
                 <div class="login" id="signinView" style="display: none">
@@ -247,6 +267,7 @@
 <script type="text/javascript" src="../js/user.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
 <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function () {

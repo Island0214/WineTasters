@@ -53,7 +53,8 @@ function checkCookie() {
     var username = getCookie('username');
     // alert(username);
     if (username != null && username != "") {
-        alert(username);
+        // alert(username);
+        logInfo(username);
     }
 
 }

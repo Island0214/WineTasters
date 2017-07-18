@@ -3,12 +3,15 @@ package serviceImpl;
 import dao.DocumentDao;
 import entityPO.DocumentPO;
 import entityVO.DocumentVO;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.ManageService;
 import util.TransferHelper;
+import util.XMLAnalyse;
 
 import java.io.File;
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -21,7 +24,12 @@ public class ManageServiceImpl implements ManageService {
     private DocumentDao documentDao;
 
     @Override
-    public boolean uploadDocument(File file) {
+    public boolean uploadDocument(File file) throws DocumentException {
+        DocumentPO documentPO = XMLAnalyse.readXMLFile(file);
+        if(documentDao.getDocumentByCaseNumber(documentPO.getCaseNumber())==null){
+            documentDao.saveDocument(documentPO);
+            return true;
+        }
         return false;
     }
 
@@ -31,14 +39,24 @@ public class ManageServiceImpl implements ManageService {
     }
 
     @Override
-    public List<DocumentVO> getDocuments(String rex, int max) {
-        List<DocumentPO> documentPOS = documentDao.getDocuments(rex, max);
-        return TransferHelper.transToDocumentVOList(documentPOS);
+    public int getPageNumberByRex(String rex, int max) {
+        return documentDao.getPageNumber("select count(*) from DocumentPO where originDocument like '%"+rex+"%'",max);
     }
 
     @Override
-    public List<DocumentVO> getDocuments(int n, String category) {
-        List<DocumentPO> documentPOS = documentDao.getDocuments(n, category);
-        return TransferHelper.transToDocumentVOList(documentPOS);
+    public List<DocumentVO> getDocumentsByRex(String rex, int page, int max) {
+        return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where originDocument like '%"+rex+"%'",page,max));
     }
+
+    @Override
+    public int getPageNumber(String category, int max) {
+        return documentDao.getPageNumber("select count(*) from DocumentPO where property = '"+category+"'",max);
+    }
+
+    @Override
+    public List<DocumentVO> getDocumentsByCategory(String category, int page, int max) {
+        return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where property = '"+category+"'",page,max));
+    }
+
+
 }

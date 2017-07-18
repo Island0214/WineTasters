@@ -1,9 +1,10 @@
 /**
  * Created by island on 2017/7/17.
  */
-function logIn() {
+function log() {
     var username = $('#logInUsername').val();
     var password = $('#logInPassword').val();
+    // alert(username);
 
     if (username == "" || password == "") {
         alert("请输入完整信息");
@@ -20,10 +21,13 @@ function logIn() {
         },
         async: false,
         success: function (data) {
-            // alert("ok");
+            // alert(data.result);
             if (data.result == "success") {
                 closeLoginView();
+                // alert("success");
                 setCookie("username", username, "h1");
+                // alert("success");
+                logInfo(username);
                 return;
             }
             if (data.result == "fail") {
@@ -72,6 +76,7 @@ function signIn() {
                 alert("注册成功");
                 closeSigninView();
                 setCookie("username", username, "h1");
+                // logInfo(username);
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -83,8 +88,17 @@ function signIn() {
     });
 }
 
-function quitLog() {
+function logInfo(username) {
+    // alert(username);
+    $('#preLog').css("display", "none");
+    $('#afterLog').fadeIn();
+    $('#userNameLabel').html(username);
+}
 
+function quitLog() {
+    delCookie("username");
+    $('#afterLog').css("display", "none");
+    $('#preLog').fadeIn();
 }
 
 function showLoginView() {
