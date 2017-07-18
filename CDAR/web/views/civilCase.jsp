@@ -39,12 +39,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="../js/jquery.jqpagination.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
-        });
+//        jQuery(document).ready(function($) {
+//            $(".scroll").click(function(event){
+//                event.preventDefault();
+//                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+//            });
+//        });
     </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -162,9 +162,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="sort_buttons">
                             <!--<div class="date_button">裁判日期</div>-->
                             <p>
-                                <a href="#" class="a_demo_one">
+                                <div class="a_demo_one">
                                     裁判日期 ↓
-                                </a>
+                                </div>
                             </p>
                         </div>
                         <div class="case_item">
