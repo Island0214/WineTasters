@@ -60,5 +60,20 @@ public class ManageServiceImpl implements ManageService {
         return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where property = '"+category+"'",page,max));
     }
 
+    @Override
+    public int getPageNumberByReason(String reason, int max) {
+        return documentDao.getPageNumber("select count(*) from DocumentPO where reason = '"+reason+"'",max);
+    }
+
+    @Override
+    public List<DocumentVO> getDocumentsByReason(String reason, int page, int max) {
+        return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where reason = '"+reason+"'",page,max));
+    }
+
+    @Override
+    public List<String> getAllReason() {
+        return documentDao.getAllReason();
+    }
+
 
 }

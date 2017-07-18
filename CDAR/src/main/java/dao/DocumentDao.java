@@ -53,4 +53,10 @@ public interface DocumentDao {
      * @return 包含该关键字案例PO的List
      */
     List<DocumentPO> getRecommendDocuments(List<String> keywords);
+
+    /**
+     * 返回所有案由
+     * @return 包含所有案由的List
+     */
+    List<String> getAllReason();
 }
