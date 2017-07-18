@@ -49,7 +49,7 @@ public class ManageServiceImpl implements ManageService {
     }
 
     @Override
-    public int getPageNumber(String category, int max) {
+    public int getPageNumberByCategory(String category, int max) {
         return documentDao.getPageNumber("select count(*) from DocumentPO where property = '"+category+"'",max);
     }
 

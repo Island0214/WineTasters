@@ -48,7 +48,7 @@ public interface ManageService {
      * @param max 每页最大个数
      * @return 页数
      */
-    int getPageNumber(String category, int max);
+    int getPageNumberByCategory(String category, int max);
 
     /**
      * 取出该类别的案件

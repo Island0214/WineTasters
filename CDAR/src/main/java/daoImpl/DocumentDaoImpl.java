@@ -81,6 +81,23 @@ public class DocumentDaoImpl implements DocumentDao{
 
     @Override
     public List<DocumentPO> getRecommendDocuments(List<String> keywords) {
-        return null;
+        Session session = getSession();
+        StringBuilder hql = new StringBuilder("from DocumentPO where keywords like ?");
+        String addSubQuery = " or keywords like ?";
+
+        for(int i = 0; i < keywords.size()-1; i++){
+            hql.append(addSubQuery);
+        }
+
+        Query q = session.createQuery(hql.toString());
+
+        for(int i = 0; i < keywords.size(); i++){
+            q.setParameter(i,"%"+keywords.get(i)+"%");
+        }
+
+        q.setMaxResults(10);
+
+        List<DocumentPO> result = q.getResultList();
+        return result;
     }
 }
