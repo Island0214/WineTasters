@@ -25,19 +25,37 @@ public interface ManageService {
     boolean deleteDocument(Integer documentID);
 
     /**
-     * 正则匹配搜索
-     * @param rex 匹配的字符串
-     * @param max 最大个数
-     * @return 包含一个或多个案件VO的List
+     * 返回正则匹配对应页数
+     * @param rex 正则匹配内容
+     * @param max 每页最大个数
+     * @return 页数
      */
-    List<DocumentVO> getDocuments(String rex, int max);
+    int getPageNumberByRex(String rex, int max);
 
     /**
-     * 随机取出n个案件
-     * @param n 案件个数
+     * 正则匹配搜索
+     * @param rex 匹配的字符串
+     * @param page 页数
+     * @param max 每页最大个数
+     * @return 包含一个或多个案件VO的List
+     */
+    List<DocumentVO> getDocumentsByRex(String rex, int page,int max);
+
+    /**
+     * 返回某一类别案件对应页数
      * @param category 案件类别
+     * @param max 每页最大个数
+     * @return 页数
+     */
+    int getPageNumber(String category, int max);
+
+    /**
+     * 取出该类别的案件
+     * @param category 案件类别
+     * @param page 页数
+     * @param max 每页最大个数
      * @return 包含n个案件VO的List
      */
-    List<DocumentVO> getDocuments(int n,String category);
+    List<DocumentVO> getDocumentsByCategory(String category, int page, int max);
 
 }
