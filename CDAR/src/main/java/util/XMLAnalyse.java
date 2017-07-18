@@ -40,7 +40,6 @@ public class XMLAnalyse {
         Element root = document.getRootElement();
         documentPO = new DocumentPO();
         listNodes(root, documentPO);
-        System.out.println(documentPO.getCaseNumber());
         System.out.println(x++);
         return documentPO;
     }
@@ -170,6 +169,7 @@ public class XMLAnalyse {
         String path = "src/main/java/test";
         File root = new File(path);
         File[] folders = root.listFiles();
+        ExtractKeyword extractKeyword = new ExtractKeyword();
         for (File folder : folders) {
             System.out.println("Folder:"+folder.getName());
             //去除隐藏文件
@@ -179,9 +179,10 @@ public class XMLAnalyse {
             File[] files = folder.listFiles();
             for (File file : files) {
                 DocumentPO po = XMLAnalyse.readXMLFile(file);
-                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
-                    documentDao.saveDocument(po);
-                }
+                System.out.println(extractKeyword.extractKeyword(po.getOriginDocument()));
+//                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
+//                    documentDao.saveDocument(po);
+//                }
 
 //                XMLAnalyse.readXMLFile(file.getPath());
             }
