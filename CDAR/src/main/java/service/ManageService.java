@@ -1,6 +1,7 @@
 package service;
 
 import entityVO.DocumentVO;
+import org.dom4j.DocumentException;
 
 import java.io.File;
 import java.util.List;
@@ -13,9 +14,9 @@ public interface ManageService {
     /**
      * 上传*.xml文件，分析并存储到数据库
      * @param file *.xml
-     * @return 是否成功
+     * @return 是否成功(若重复，则return false)
      */
-    boolean uploadDocument(File file);
+    boolean uploadDocument(File file) throws DocumentException;
 
     /**
      * 删除案件信息

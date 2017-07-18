@@ -34,11 +34,16 @@ public class DocumentDaoImpl implements DocumentDao{
 
     @Override
     public boolean saveDocument(DocumentPO documentPO) {
-        Session session = getSession();
-        session.beginTransaction();
-        session.save(documentPO);
-        session.getTransaction().commit();
-        session.close();
+        try {
+            Session session = getSession();
+            session.beginTransaction();
+            session.save(documentPO);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 
