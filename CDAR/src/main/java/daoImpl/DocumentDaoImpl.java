@@ -98,6 +98,16 @@ public class DocumentDaoImpl implements DocumentDao{
         q.setMaxResults(10);
 
         List<DocumentPO> result = q.getResultList();
+        session.close();
+        return result;
+    }
+
+    @Override
+    public List<String> getAllReason() {
+        Session session = getSession();
+        Query q = session.createQuery("select distinct reason from DocumentPO");
+        List<String> result = q.getResultList();
+        session.close();
         return result;
     }
 }

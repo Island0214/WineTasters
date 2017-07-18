@@ -59,4 +59,27 @@ public interface ManageService {
      */
     List<DocumentVO> getDocumentsByCategory(String category, int page, int max);
 
+    /**
+     * 返回某一案由对应页数
+     * @param reason 案由
+     * @param max 每页最大个数
+     * @return 页数
+     */
+    int getPageNumberByReason(String reason, int max);
+
+    /**
+     * 取出该案由的案件
+     * @param reason 案由
+     * @param page 页数
+     * @param max 每页最大个数
+     * @return 包含n个案件VO的List
+     */
+    List<DocumentVO> getDocumentsByReason(String reason, int page, int max);
+
+    /**
+     * 返回所有案由
+     * @return 包含所有案由的List
+     */
+    List<String> getAllReason();
+
 }
