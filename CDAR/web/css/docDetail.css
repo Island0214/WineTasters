@@ -29,11 +29,12 @@
     line-height: 26px;
     letter-spacing: 2px;
     padding: 1em 2em;
+    font-weight: 500;
 }
 .outline {
     float: left;
     width: 26%;
-    margin-left: 30px;
+    margin-left: 45px;
     background: whitesmoke;
     /*height: 30%;*/
     border-radius: 7px;

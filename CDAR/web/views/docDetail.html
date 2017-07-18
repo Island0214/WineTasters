@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/user.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/accordion.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="../css/analyzeDoc.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/docDetail.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/button.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/jqpagination.css" type="text/css" media="all" />
     <!--// css -->
@@ -29,12 +29,12 @@
     <script src="../js/jquery.jqpagination.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script type="text/javascript">
-        //        jQuery(document).ready(function($) {
-        //            $(".scroll").click(function(event){
-        //                event.preventDefault();
-        //                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-        //            });
-        //        });
+                jQuery(document).ready(function($) {
+                    $(".scroll").click(function(event){
+                        event.preventDefault();
+                        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                    });
+                });
     </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -76,7 +76,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="../index.jsp">首页</a></li>
                                 <li><a href="civilCase.jsp">民事案件</a></li>
-                                <li><a class="active" href="#">查询类案</a></li>
+                                <li><a href="#">查询类案</a></li>
                                 <li class="dropdown">
                                     <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
                                         <!-- <b class="caret"></b> -->
@@ -114,7 +114,6 @@
     <div class="main-textgrids">
         <div class="container">
             <div class="statements">
-
 
                 <!--case list案例列表-->
                 <div id="resultPage">
@@ -171,8 +170,8 @@
                         <div>关键字：<span id="keywords">合同 劳务</span></div>
                         <div>
                             相似案例：
-                            <a href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
-                            <a href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
+                            <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
+                            <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
                         </div>
                     </div>
                 </div>
