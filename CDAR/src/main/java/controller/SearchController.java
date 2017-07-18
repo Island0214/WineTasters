@@ -2,6 +2,7 @@ package controller;
 
 import entityVO.DocumentVO;
 import org.apache.commons.collections.map.HashedMap;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +60,11 @@ public class SearchController {
         MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
         MultipartFile multipartFile = multipartRequest.getFile("file");
         File xmlFile = (File) multipartFile;
-        manageService.uploadDocument(xmlFile);
+        try {
+            manageService.uploadDocument(xmlFile);
+        }catch (DocumentException e){
+            e.printStackTrace();
+        }
         try {
             InputStream inputStream=multipartFile.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
