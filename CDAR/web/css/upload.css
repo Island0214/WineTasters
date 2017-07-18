@@ -1,0 +1,322 @@
+.upload a{
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+}
+.upload p{
+    margin:0;
+}
+.upload ul{
+    margin:0;
+    padding:0;
+}
+/*--- Reset Code ---*/
+
+
+/*--- Style ---*/
+.upload .clear {
+    clear: both;
+}
+.upload {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #d9cca2;
+    padding: 3px;
+    border-radius: 3px
+}
+
+#drop a {
+    background: #bdaa6c url("../images/up.png") no-repeat 25px;
+    padding: 30px 0px;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: calibri;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #876b15;
+    border-radius: 3px;
+    text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+    rgba(80, 80, 80, 0.07) 2px 2px,
+    rgba(80, 80, 80, 0.09) 3px 3px,
+    rgba(80, 80, 80, 0.04) 4px 4px,
+    rgba(80, 80, 80, 0.06) 5px 5px;
+}
+#drop a:hover {
+    
+}
+
+
+#drop input{
+    display:none;
+}
+
+#upload ul{
+}
+
+#upload ul li{
+    padding: 0 0px;
+    height: 79px;
+    position: relative;
+    list-style-type: none;
+    clear: both;
+    overflow: hidden;
+    background-color: antiquewhite;
+
+    border-radius: 3px;
+}
+
+#upload ul li input{
+    display: none;
+}
+
+#upload ul li p{
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 70px;
+}
+
+#upload ul li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+    text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+    rgba(80, 80, 80, 0.07) 2px 2px,
+    rgba(80, 80, 80, 0.09) 3px 3px,
+    rgba(80, 80, 80, 0.04) 4px 4px,
+    rgba(80, 80, 80, 0.06) 5px 5px;
+}
+
+#upload ul li canvas{
+    top: 15px;
+    left: 10px;
+    position: absolute;
+}
+
+#upload ul li span{
+    width: 32px;
+    height: 32px;
+    background: url('../images/close-circle-outline.png') no-repeat;
+    /*background-position: 0 12px;*/
+    position: absolute;
+    top: 24px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#upload ul li.working span{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#upload ul li.error p{
+    color:dimgrey;
+}
+
+
+.upload span {
+    color: #F1F1F1;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    display: block;
+    letter-spacing: 2px;
+}
+.checkbox {
+    margin-bottom: 4px;
+    padding-left: 27px;
+    line-height: 27px;
+    cursor: pointer;
+    position: relative;
+    font-size: 1em;
+    color: #2d2d2d;
+}
+.checkbox i {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 2px solid #5f8b9e;
+}
+.checkbox input:checked + i:after {
+    opacity: 1;
+}
+.checkbox input + i:after {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.1s;
+    -o-transition: opacity 0.1s;
+    -ms-transition: opacity 0.1s;
+    -moz-transition: opacity 0.1s;
+    -webkit-transition: opacity 0.1s;
+}
+.checkbox input + i:after {
+    content: '';
+    /*background: url("../images/tick1.png") no-repeat 1px 2px;*/
+    top: -1px;
+    left: -1px;
+    width: 15px;
+    height: 15px;
+    font: normal 12px/16px FontAwesome;
+    text-align: center;
+}
+.checkbox input {
+    position: absolute;
+    left: -9999px;
+}
+
+.button {
+    text-align: center;
+    padding: 20px 0;
+    text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+    rgba(80, 80, 80, 0.07) 2px 2px,
+    rgba(80, 80, 80, 0.09) 3px 3px,
+    rgba(80, 80, 80, 0.04) 4px 4px,
+    rgba(80, 80, 80, 0.06) 5px 5px;
+}
+.button .cancel a {
+    float: left;
+    width: 25%;
+    background-color: rgba(163,135,57,.5);
+    border: none;
+    color: #FFF;
+    padding: 11px 0px;
+    border-radius: 3px;
+    color: #FFF;
+    font-family: calibri;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 20px;
+}
+.button .cancel a:hover {
+    background-color: #F33737;
+    opacity: .7;
+}
+.button .done a {
+    float: right;
+    width: 25%;
+    background-color: rgba(163,135,57,.5);
+    border: none;
+    padding: 11px 0px;
+    border-radius: 3px;
+    color: #FFF;
+    font-family: calibri;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.button .done a:hover {
+    background-color: #0D9437;
+    opacity: .7;
+}
+
+
+
+
+
+/*--- Style ---*/
+
+/*-- Responsive - Design --*/
+
+@media screen and (max-width: 384px) {
+    h1 {
+        margin-top: 50px;
+        font-size: 30px;
+    }
+    #drop a {
+        background: #876b15 url("../images/up.png") no-repeat 15px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        margin-top: 70px;
+        font-size: 30px;
+    }
+    .upload {
+        width: 95%;
+        margin-top: 100px;
+    }
+    #drop a {
+        background: #876b15 url("../images/up.png") no-repeat 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+    .upload {
+        width: 95%;
+        padding: 3px;
+        margin-top: 80px;
+    }
+    #upload ul li p {
+        width: 140px;
+    }
+    #drop a {
+        background: #876b15 url("../images/up.png") no-repeat 15px;
+    }
+    #drop a:hover {
+        background-color: #876b15;
+    }
+    .button .cancel {
+        padding: 6px 0px;
+    }
+    .button .done {
+        padding: 6px 0px;
+        margin-top: -12px;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    h1 {
+        font-size: 23px;
+        margin-top: 50px;
+    }
+    .upload {
+        width: 95%;
+        padding: 3px;
+        margin-top: 60px;
+    }
+    #drop a {
+        background: #876b15 url("../images/up.png") no-repeat 8px;
+        padding: 25px 0px;
+        font-size: 20px;
+        letter-spacing: 0px;
+    }
+    .button .cancel {
+        width: 115%;
+        padding: 6px 0px;
+        margin-left: 10px;
+    }
+    .button .done {
+        width: 115%;
+        padding: 6px 0px;
+        margin-right: -110px;
+    }
+}
+
+/*-- Responsive - Design --*/

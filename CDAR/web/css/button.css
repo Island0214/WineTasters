@@ -2,6 +2,7 @@
 /* CSS Document */
 .a_demo_one {
 	display: inline;
+	outline: none;
 	cursor: pointer;
 	background-color:rgba(163,135,57,.2);
 	padding:10px;
