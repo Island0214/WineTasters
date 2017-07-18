@@ -4,10 +4,10 @@ import dao.DocumentDao;
 import entityPO.DocumentPO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -57,14 +57,27 @@ public class DocumentDaoImpl implements DocumentDao{
     }
 
     @Override
-    public List<DocumentPO> getDocuments(String rex, int max) {
-        return null;
+    public int getPageNumber(String hql, int max) {
+        Session session = getSession();
+        long totalNumber = (long)session.createQuery(hql).uniqueResult();
+        session.close();
+        int result = (int) (totalNumber / max);
+        if(totalNumber % max > 0)
+            return result + 1;
+        else
+            return result;
     }
 
     @Override
-    public List<DocumentPO> getDocuments(int n, String category) {
-        return null;
+    public List<DocumentPO> getDocuments(String hql, int page, int max) {
+        Session session = getSession();
+        Query q = session.createQuery(hql);
+        q.setFirstResult((page-1) * max);
+        q.setMaxResults(max);
+        List<DocumentPO> result = q.getResultList();
+        return result;
     }
+
 
     @Override
     public List<DocumentPO> getRecommendDocuments(List<String> keywords) {

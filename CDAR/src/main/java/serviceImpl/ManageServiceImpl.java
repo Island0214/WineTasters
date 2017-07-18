@@ -39,14 +39,24 @@ public class ManageServiceImpl implements ManageService {
     }
 
     @Override
-    public List<DocumentVO> getDocuments(String rex, int max) {
-        List<DocumentPO> documentPOS = documentDao.getDocuments(rex, max);
-        return TransferHelper.transToDocumentVOList(documentPOS);
+    public int getPageNumberByRex(String rex, int max) {
+        return documentDao.getPageNumber("select count(*) from DocumentPO where originDocument like '%"+rex+"%'",max);
     }
 
     @Override
-    public List<DocumentVO> getDocuments(int n, String category) {
-        List<DocumentPO> documentPOS = documentDao.getDocuments(n, category);
-        return TransferHelper.transToDocumentVOList(documentPOS);
+    public List<DocumentVO> getDocumentsByRex(String rex, int page, int max) {
+        return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where originDocument like '%"+rex+"%'",page,max));
     }
+
+    @Override
+    public int getPageNumber(String category, int max) {
+        return documentDao.getPageNumber("select count(*) from DocumentPO where property = '"+category+"'",max);
+    }
+
+    @Override
+    public List<DocumentVO> getDocumentsByCategory(String category, int page, int max) {
+        return TransferHelper.transToDocumentVOList(documentDao.getDocuments("from DocumentPO where property = '"+category+"'",page,max));
+    }
+
+
 }

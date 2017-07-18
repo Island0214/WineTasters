@@ -31,20 +31,21 @@ public interface DocumentDao {
     boolean deleteDocument(Integer documentID);
 
     /**
-     * 正则匹配搜索
-     * @param rex 匹配的字符串
-     * @param max 最大个数
-     * @return 包含一个或多个案件PO的List
+     * 返回对应页数
+     * @param hql 查询语句
+     * @param max 每页最大个数
+     * @return 页数
      */
-    List<DocumentPO> getDocuments(String rex,int max);
+    int getPageNumber(String hql, int max);
 
     /**
-     * 随机取出n个案件
-     * @param n 案件个数
-     * @param category 案件类别
-     * @return 包含n个案件PO的List
+     * 按页取出
+     * @param hql 查询语句
+     * @param page 页数
+     * @param max 每页最大个数
+     * @return 包含一个或多个案件PO的List
      */
-    List<DocumentPO> getDocuments(int n,String category);
+    List<DocumentPO> getDocuments(String hql,int page,int max);
 
     /**
      * 根据关键字，返回包含该关键字的案例
