@@ -108,6 +108,7 @@ public class DocumentPO {
         this.reason = reason;
     }
 
+    @Column(length = 1000)
     public String getEvidence() {
         return evidence;
     }
