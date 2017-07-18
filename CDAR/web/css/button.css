@@ -55,7 +55,9 @@
 	-o-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
 	box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
 }
-
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.a_demo_one::before{width: 119%;}
+}
 .a_demo_one:active {
 	/*padding-bottom:9px;*/
 	/*padding-left:10px;*/
