@@ -55,6 +55,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             checkCookie();
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getPageSize();
+            getCaseOfEachPage(1);
+            getReasonTypes();
+        });
+    </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
@@ -142,12 +149,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div>
                         <input id="ac-1" name="accordion-1" type="checkbox"/>
                         <label for="ac-1" class="grid1">按关键字筛选</label>
-                        <article class="ac-small">
-                            <ul>
-                                <li><a href="#">合同</a></li>
-                                <li><a href="#">交通事故</a></li>
-                                <li><a href="#">婚姻</a></li>
-                                <li><a href="#">民间借贷</a></li>
+                        <article class="ac-small" style="height: auto">
+                            <ul id="as-ul1">
+                                <%--<li><a href="#">合同</a></li>--%>
+                                <%--<li><a href="#">交通事故</a></li>--%>
+                                <%--<li><a href="#">婚姻</a></li>--%>
+                                <%--<li><a href="#">民间借贷</a></li>--%>
                             </ul>
                         </article>
                     </div>
@@ -239,18 +246,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#" class="next" data-action="next">&rsaquo;</a>
                     <a href="#" class="last" data-action="last">&raquo;</a>
                 </div>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('.pagination').jqPagination({
-                            link_string: '/?page={page_number}',
-                            max_page: 80,
-                            paged: function (page) {
-                                // do something with the page variable
-                                $('.log').prepend('<li>Requested page ' + page + '</li>');
-                            }
-                        });
-                    });
-                </script>
                 <!--//Pagination-->
             </div>
 
@@ -344,6 +339,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript" src="../js/user.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function () {
