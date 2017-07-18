@@ -15,7 +15,11 @@ import java.util.regex.Pattern;
  */
 public class ExtractKeyword {
 
-    private static String NOT_INCLUDE = "被告原告上述没有出生汉族本院身份证判决";
+    private static String PATTERN = "(^[1-9]\\d*$)|(.{2,}市$)|(.{2,}区$)|(.+县$)|" +
+            "((被告)?(原告)?(上述)?(没有)?(出生)?(汉族)?(本院)?(身份证)?(身份证)?(号码)?(判决)?(诉讼)?(起诉)?(予以)?(上诉)?" +
+            "(证据)?(证明)?(证实)?(提供)?(公民)?(陈述)?(当事人)?(判决书)?(代理人)?(中华人民共和国.*)?(人民法院)?" +
+            "(.*第一(百)?.*)?(.*第二(百)?.*)?(.*第三(百)?.*)?(.*第四(百)?.*)?(.*第五(百)?.*)?" +
+            "(.*第六(百)?.*)?(.*第七(百)?.*)?(.*第八(百)?.*)?(.*第九(百)?)?)";
 
     public String extractKeyword(String str) {
 
@@ -46,11 +50,9 @@ public class ExtractKeyword {
             e.printStackTrace();
         }
 
-        Pattern pattern = Pattern.compile("[0-9]+");
-
         if (temp != null) {
             for (String s : temp) {
-                if (!NOT_INCLUDE.contains(s) && !pattern.matcher(str).matches()) {
+                if (!Pattern.matches(PATTERN, s)) {
                    result.add(s);
                 }
             }
