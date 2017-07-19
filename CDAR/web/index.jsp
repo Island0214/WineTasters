@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CDAR法院类案推荐系统</title>
+    <title>CDAR-首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <script type="application/x-javascript"> addEventListener("load", function () {
@@ -107,7 +107,7 @@
                         <ul class="nav navbar-nav">
                             <li><a class="active" href="index.jsp">首页</a></li>
                             <li><a href="views/civilCase.jsp">民事案件</a></li>
-                            <li><a href="#">查询类案</a></li>
+                            <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
                                 <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
                                     <!-- <b class="caret"></b> -->
