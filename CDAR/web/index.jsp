@@ -74,6 +74,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" style="min-width: 100px;">
+                        <li><a href="#" onclick="">用户中心</a></li>
                         <li><a href="#" onclick="quitLog()">退出登录</a></li>
                     </ul>
                 </li>

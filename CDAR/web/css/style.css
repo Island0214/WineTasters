@@ -128,7 +128,8 @@ ul.dropdown-menu li{
     border: none !important;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    background: #FFFFFF;
+    color: #2658a9 !important;
+    background: #03A9F4;
 }
 .dropdown-submenu {
     position: relative;
