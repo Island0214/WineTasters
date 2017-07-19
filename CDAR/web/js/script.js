@@ -1,4 +1,4 @@
-$(function(){
+function up(){
 
     var ul = $('#upload ul');
 
@@ -24,12 +24,11 @@ $(function(){
             // Append the file name and file size
             tpl.find('p').text(data.files[0].name)
                          .append('<i>' + formatFileSize(data.files[0].size) + '</i>');
-
             // Add the HTML to the UL element
             data.context = tpl.appendTo(ul);
 
             // Initialize the knob plugin
-            tpl.find('input').knob();
+            // tpl.find('input').knob();
 
             // Listen for clicks on the cancel icon
             tpl.find('span').click(function(){
@@ -45,7 +44,28 @@ $(function(){
             });
 
             // Automatically upload the file once it is added to the queue
-            var jqXHR = data.submit();
+            $('#confirm').click(function(){
+               // alert(data);
+               data.submit().success(function (data) {
+                   if(data.success == "true"){
+                       alert("success");
+                       $('#resultPage').css("display", "block");
+                       findCase(data.caseID);
+
+                       // $('.title').text(data.);
+                   }
+                   else{
+                       alert("fail");
+                   }
+               });
+               // alert(j);
+               // if(j.success == "true"){
+               //     alert("success");
+               // }else{
+               //     alert("fail");
+               // }
+            });
+            // var jqXHR = data.submit();
         },
 
         progress: function(e, data){
@@ -92,4 +112,58 @@ $(function(){
         return (bytes / 1000).toFixed(2) + ' KB';
     }
 
-});
+}
+
+function findCase(id) {
+    $.ajax({
+        url: "/manageAction/findCase",
+        type: "POST",
+        dataType: "json",
+        data: {"id": id},
+        async: false,
+        success: function (data) {
+            // alert(data.success);
+            if (data && data.success == "true") {
+                $('.title').text("无");
+                $('.caseNumber').text("无");
+                $('.origin_document').text("无");
+                $('#courtName').text("无");
+                $('#property').text("无");
+                $('#reason').text("无");
+                $('#process').text("无");
+                $('#endDate').text("无");
+                $('#litigant').text("无");
+                $('#evidence').text("无");
+                $('#keywords').text("无");
+                if(data.content.title != null)
+                    $('.title').text(data.content.title);
+                if(data.content.id != null)
+                    $('.caseNumber').text(data.content.id);
+                if(data.content.originDocument != null)
+                    $('.origin_document').text(data.content.originDocument);
+                if(data.content.court != null)
+                    $('#courtName').text(data.content.court);
+                if(data.content.property != null)
+                    $('#property').text(data.content.property);
+                if(data.content.reason != null)
+                    $('#reason').text(data.content.reason);
+                if(data.content.process != null)
+                    $('#process').text(data.content.process);
+                if(data.content.endDate != null)
+                    $('#endDate').text(data.content.endDate);
+                if(data.content.litigant != null)
+                    $('#litigant').text(data.content.litigant);
+                if(data.content.evidence != null)
+                    $('#evidence').text(data.content.evidence);
+                if(data.content.keywords != null)
+                    $('#keywords').text(data.content.keywords);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("error");
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    });
+}

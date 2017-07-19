@@ -56,25 +56,6 @@ function search() {
     });
 }
 
-function upload() {
-    alert($('#file').val());
-    $.ajaxFileUpload({
-        url: '/manageAction/upload',
-        secureuri: false,
-        fileElementId: 'file',
-        dataType: 'json',
-        success: function () {
-            alert("上传成功");
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("上传失败");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
-        }
-    });
-}
-
 function getPageSize() {
     jQuery.ajax({
         type: 'GET',
@@ -174,24 +155,31 @@ function addCaseItem(item) {
 
     var title_a = document.createElement("a");
     var title_p = document.createElement("h4");
-    title_p.appendChild(document.createTextNode(item.title));
+    if(item.title != null)
+        title_p.appendChild(document.createTextNode(item.title));
     title_p.className = "title";
+    title_a.target = "_blank";
+    id = (encodeURIComponent(item.caseNumber));
+    title_a.href = "/views/docDetail.jsp?id=" + id;
     title_a.appendChild(title_p);
     case_item.appendChild(title_a);
 
     var court = document.createElement("p");
     court.className = "court";
-    court.appendChild(document.createTextNode(item.court));
+    if(item.court != null)
+        court.appendChild(document.createTextNode(item.court));
     case_item.appendChild(court);
 
     var caseName = document.createElement("p");
     caseName.className = "caseName";
-    caseName.appendChild(document.createTextNode(item.caseNumber));
+    if(item.caseNumber != null)
+        caseName.appendChild(document.createTextNode(item.caseNumber));
     case_item.appendChild(caseName);
 
     var endDate = document.createElement("p");
     endDate.className = "endDate";
-    endDate.appendChild(document.createTextNode(item.endDate));
+    if(item.endDate != null)
+        endDate.appendChild(document.createTextNode(item.endDate));
     case_item.appendChild(endDate);
 
     var reason = document.createElement("h5");
@@ -200,7 +188,8 @@ function addCaseItem(item) {
 
     var judge_reason = document.createElement("p");
     judge_reason.className = "judge_reason";
-    judge_reason.appendChild(document.createTextNode(item.judge_reason));
+    if(item.judge_reason != null)
+        judge_reason.appendChild(document.createTextNode(item.judge_reason));
     case_item.appendChild(judge_reason);
 }
 

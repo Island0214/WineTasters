@@ -42,6 +42,13 @@
                 event.preventDefault();
                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
+            checkCookie();
+
+            var id = (window.location.href).split("=")[1];
+            id = decodeURIComponent(id);
+//            alert(id);
+            findCase(id);
+
         });
     </script>
     <!--[if lt IE 9]>
@@ -273,6 +280,8 @@
 <script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript" src="../js/user.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function() {

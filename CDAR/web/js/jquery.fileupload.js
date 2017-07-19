@@ -1098,6 +1098,7 @@
             if (options.fileInput === undefined) {
                 options.fileInput = this.element.is('input[type="file"]') ?
                         this.element : this.element.find('input[type="file"]');
+                // alert(this.element);
             } else if (!(options.fileInput instanceof $)) {
                 options.fileInput = $(options.fileInput);
             }

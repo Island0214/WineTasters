@@ -109,47 +109,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         });
 
-        function searchInside() {
-            var input = $('#textField').val();
-            alert(input);
-            $.ajax({
-                url: "/manageAction/searchCase",
-                type: "POST",
-                // dataType: "json",
-                data: {
-                    "data": input,
-                    "page": 1
-                },
-                async: false,
-                success: function (data) {
-//                    alert("success");
-                    if (data.success == "true") {
-                        // $('#caseSearch').html(input);
-                        clearCaseList();
-                        $('.pagination').jqPagination({
-                            link_string: '/?page={page_number}',
-                            max_page: 1,
-                            paged: function (page) {
-                                // do something with the page variable
-                                $('.log').prepend('<li>Requested page ' + page + '</li>');
-                            }
-
-                        });
-                        $.each(data.content, function (i, item) {
-                            addCaseItem(item);
-                        });
-                    } else {
-                        alert(data.searchInfo);
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("error");
-                    alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus);
-                }
-            });
-        }
     </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

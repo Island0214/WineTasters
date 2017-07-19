@@ -66,6 +66,27 @@ public class SearchController {
         return map;
     }
 
+    @RequestMapping(value = "findCase", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findCaseByID(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashedMap();
+        String id = request.getParameter("id");
+        System.out.println("caseid:" + id);
+
+
+        DocumentVO documentVOS = manageService.getDocumentByCaseNumber(id);
+        if(documentVOS != null){
+            map.put("success", "true");
+            map.put("content", documentVOS);
+        }else{
+            map.put("success", "false");
+            map.put("searchInfo", "无对应结果");
+        }
+
+//        ModelAndView modelAndView = new ModelAndView()
+        return map;
+    }
+
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response){
@@ -77,13 +98,12 @@ public class SearchController {
         MultipartFile multipartFile = multipartRequest.getFile("file");
         CommonsMultipartFile cf= (CommonsMultipartFile)multipartFile; //这个myfile是MultipartFile的
         DiskFileItem fi = (DiskFileItem)cf.getFileItem();
-
         File file = fi.getStoreLocation();
-
         try {
             String up = manageService.uploadDocument(file);
             if(up != null){
                 map.put("success", "true");
+                map.put("caseID", up);
             }else{
                 map.put("success", "false");
             }

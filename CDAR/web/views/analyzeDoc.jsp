@@ -42,7 +42,11 @@
                 event.preventDefault();
                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
+
+            checkCookie();
+            up();
         });
+
     </script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -125,10 +129,10 @@
 
             <!--上传XML文件-->
             <div class="upload effect">
-                <form id="upload" method="post" action="" enctype="multipart/form-data">
+                <form id="upload" method="post" action="/manageAction/upload" enctype="multipart/form-data">
                     <div id="drop">
                         <a>上传文件</a>
-                        <input type="file" id="file" name="file" value="选择文件" multiple />
+                        <input type="file" id="file" name="file" value="选择文件"/>
                     </div>
                     <ul>
                         <!-- The file uploads will be shown here -->
@@ -151,7 +155,7 @@
 
                 <div class="button">
                     <div class="cancel"><a href="#">取消</a></div>
-                    <div class="done"><a href="#" onclick="upload()">确认</a></div>
+                    <div class="done"><a href="#" id="confirm">确认</a></div>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -159,15 +163,15 @@
             <div id="resultPage">
                 <!--上传的案例全文-->
                 <div class="document effect">
-                    <h4 class="title">
+                    <h4 class="title" id="caseTitle">
                         湖南省耒阳市人民法院
                         民事判决书
                     </h4>
-                    <div class="caseNumber">
+                    <div class="caseNumber" id="caseNum">
                         （2006）港民初字第1025号
                     </div>
                     <!--原文正文-->
-                    <div class="origin_document">
+                    <div class="origin_document" id="caseContent">
                         原告：谢某某，男。
                         委托代理人：陈某某，男。
                         被告：谷某，男。
@@ -305,6 +309,9 @@
 <script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript" src="../js/user.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
+<script type="text/javascript" src="../js/upload.js"></script>
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function() {
