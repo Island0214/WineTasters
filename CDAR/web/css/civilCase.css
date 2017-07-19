@@ -19,6 +19,7 @@
 }
 .case_item {
     width: 98%;
+
     color: whitesmoke;
     margin: 1em auto;
     padding: 1em;
@@ -28,6 +29,7 @@
 .case_item a {
     font-weight: bold;
     color: whitesmoke;
+    cursor: pointer;
 }
 .case_item h4 {
     font-weight: bold;
@@ -61,4 +63,8 @@
 
 .case_item .endDate {
     margin-left: 40px;
+}
+
+.case_item .judge_reason {
+    max-height: 70px;
 }

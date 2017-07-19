@@ -116,6 +116,7 @@
 	text-decoration:none;
 	text-transform: capitalize;
 	display: block;
+	cursor: pointer;
 }
 
 /*-----start-responsive-design------*/
