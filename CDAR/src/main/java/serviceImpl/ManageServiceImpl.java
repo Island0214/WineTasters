@@ -25,14 +25,19 @@ public class ManageServiceImpl implements ManageService {
     private DocumentDao documentDao;
 
     @Override
-    public boolean uploadDocument(File file) throws DocumentException {
+    public DocumentVO getDocumentByCaseNumber(String caseNumber) {
+        return new DocumentVO(documentDao.getDocumentByCaseNumber(caseNumber));
+    }
+
+    @Override
+    public String uploadDocument(File file) throws DocumentException {
         DocumentPO documentPO = XMLAnalyse.readXMLFile(file);
         if(documentDao.getDocumentByCaseNumber(documentPO.getCaseNumber())==null){
             documentPO.setKeywords(new ExtractKeyword().extractKeyword(documentPO.getOriginDocument()));
             documentDao.saveDocument(documentPO);
-            return true;
+            return documentPO.getCaseNumber();
         }
-        return false;
+        return null;
     }
 
     @Override

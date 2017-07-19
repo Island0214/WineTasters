@@ -12,11 +12,18 @@ import java.util.List;
 public interface ManageService {
 
     /**
+     * 通过案号拿到案例
+     * @param caseNumber 案号
+     * @return 案例
+     */
+    DocumentVO getDocumentByCaseNumber(String caseNumber);
+
+    /**
      * 上传*.xml文件，分析并存储到数据库
      * @param file *.xml
-     * @return 是否成功(若重复，则return false)
+     * @return 案例的案号
      */
-    boolean uploadDocument(File file) throws DocumentException;
+    String uploadDocument(File file) throws DocumentException;
 
     /**
      * 删除案件信息
