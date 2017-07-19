@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.ModelAndView;
 import service.AnalysisService;
 import service.ManageService;
 
@@ -52,10 +53,16 @@ public class SearchController {
 
         List<DocumentVO> documentVOS = analysisService.recommendByKeywords(keys);
         if(documentVOS != null){
+            map.put("input", input);
+            map.put("success", "true");
+            map.put("content", documentVOS);
             System.out.println(documentVOS.size());
         }else{
-            System.out.println("null");
+            map.put("success", "false");
+            map.put("searchInfo", "无对应结果");
         }
+
+//        ModelAndView modelAndView = new ModelAndView()
         return map;
     }
 
@@ -64,26 +71,18 @@ public class SearchController {
     public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response){
         Map<String, Object> map = new HashedMap();
         System.out.println("upload");
+
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-//        System.out.println("1");
-
         MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
-//        System.out.println("2");
-
         MultipartFile multipartFile = multipartRequest.getFile("file");
-//        System.out.println("3");
-
         CommonsMultipartFile cf= (CommonsMultipartFile)multipartFile; //这个myfile是MultipartFile的
-//        System.out.println("4");
-
         DiskFileItem fi = (DiskFileItem)cf.getFileItem();
-//        System.out.println("5");
 
         File file = fi.getStoreLocation();
 
         try {
-            boolean up = manageService.uploadDocument(file);
-            if(up){
+            String up = manageService.uploadDocument(file);
+            if(up != null){
                 map.put("success", "true");
             }else{
                 map.put("success", "false");
@@ -96,7 +95,7 @@ public class SearchController {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String tempString = null;
             if((tempString = reader.readLine()) != null)
-                System.out.println(tempString = reader.readLine());
+                System.out.println(tempString);
 
 //// 一次读入一行，直到读入null为文件结束
 //            while ((tempString = reader.readLine()) != null) {
@@ -126,26 +125,8 @@ public class SearchController {
 
         Map<String, Object> map = new HashedMap();
         int page = Integer.parseInt(request.getParameter("page"));
-//        System.out.println(page);
         List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("民事案件", page,10);
-//        DocumentVO documentVO;
-//        for(int i = 0; i < documentVOS.size(); i++){
-//            documentVO = documentVOS.get(i);
-//            JSONObject jsonObject = new JSONObject();
-//            jsonObject.put("id", documentVO.id);
-//            jsonObject.put("title", documentVO.title);
-//            jsonObject.put("caseNumber", documentVO.caseNumber);
-//            jsonObject.put("court", documentVO.court);
-//            jsonObject.put("endDate", documentVO.endDate);
-//            jsonObject.put("judge_reason", documentVO.judge_reason);
-//            jsonObject.put("property", documentVO.property);
-//            jsonObject.put("evidence", documentVO.evidence);
-//            jsonObject.put("process", documentVO.process);
-//            jsonObject.put("reason", documentVO.reason);
-//            jsonObject.put("litigant", documentVO.litigant);
-//            jsonObject.put("originDocument", documentVO.originDocument);
-//            map.put(i+"", jsonObject);
-//        }
+
         map.put("success", "true");
         map.put("content", documentVOS);
         return map;

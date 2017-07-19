@@ -23,14 +23,14 @@ public class TransferHelper {
         return result;
     }
 
-    private static DocumentVO transToDocumentVO(DocumentPO documentPO) {
+    public static DocumentVO transToDocumentVO(DocumentPO documentPO) {
         if(documentPO == null) {
             return null;
         }
 
         return new DocumentVO(documentPO.getId(), documentPO.getCaseNumber(), documentPO.getCaseNumber(), documentPO.getCourt(),
                 documentPO.getEndDate(), documentPO.getJudgeReason(), documentPO.getProperty(), documentPO.getEvidence(),
-                documentPO.getProcess(), documentPO.getReason(), documentPO.getLitigant(), documentPO.getOriginDocument());
+                documentPO.getProcess(), documentPO.getReason(), documentPO.getLitigant(), documentPO.getOriginDocument(), documentPO.getKeywords());
     }
 
 

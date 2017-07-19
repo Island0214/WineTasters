@@ -128,7 +128,7 @@
                 <form id="upload" method="post" action="" enctype="multipart/form-data">
                     <div id="drop">
                         <a>上传文件</a>
-                        <input type="file" name="upl" multiple />
+                        <input type="file" id="file" name="file" value="选择文件" multiple />
                     </div>
                     <ul>
                         <!-- The file uploads will be shown here -->
@@ -142,6 +142,7 @@
                 <script src="../js/jquery.ui.widget.js"></script>
                 <script src="../js/jquery.iframe-transport.js"></script>
                 <script src="../js/jquery.fileupload.js"></script>
+                <script src="../js/ajaxfileupload.js"></script>
                 <!-- jQuery File Upload Dependencies -->
 
                 <!-- Main JavaScript file -->
@@ -150,7 +151,7 @@
 
                 <div class="button">
                     <div class="cancel"><a href="#">取消</a></div>
-                    <div class="done"><a href="#">确认</a></div>
+                    <div class="done"><a href="#" onclick="upload()">确认</a></div>
                     <div class="clear"> </div>
                 </div>
             </div>

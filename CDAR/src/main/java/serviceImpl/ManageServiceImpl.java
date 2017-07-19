@@ -26,7 +26,7 @@ public class ManageServiceImpl implements ManageService {
 
     @Override
     public DocumentVO getDocumentByCaseNumber(String caseNumber) {
-        return new DocumentVO(documentDao.getDocumentByCaseNumber(caseNumber));
+        return TransferHelper.transToDocumentVO(documentDao.getDocumentByCaseNumber(caseNumber));
     }
 
     @Override

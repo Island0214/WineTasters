@@ -3,15 +3,49 @@
  */
 function search() {
     var input = $('#textField').val();
-    alert(input);
+    // $.ajax({
+    //     url:"/views/civilCase.jsp",
+    //     dataType:"jsp",
+    //     type:"get",
+    //     success:function(data){
+    //         //div加载页面
+    //         $("#div").html(data);
+    //     }
+    // });
+    // window.location.href = "views/civilCase.jsp";
+    // document.location.href='/views/civilCase.jsp';
+    // alert(input);
     $.ajax({
         url: "/manageAction/searchCase",
         type: "POST",
         // dataType: "json",
-        data: {"data": input},
+        data: {"data": input,
+        "page": 1},
         async: false,
         success: function (data) {
-            alert("success");
+            // alert("success");
+            if (data.success == "true") {
+                // alert(window.location.href);
+                // alert('/views/civilCase.jsp?input=' + input);
+                window.location.href = '../views/civilCase.jsp?input=' + input;
+                // $('#caseSearch').html(input);
+                // clearCaseList();
+                // $('.pagination').jqPagination({
+                //     link_string: '/?page={page_number}',
+                //     max_page: 1,
+                //     paged: function (page) {
+                //         // do something with the page variable
+                //         $('.log').prepend('<li>Requested page ' + page + '</li>');
+                //     }
+                //
+                // });
+                // $.each(data.content, function (i, item) {
+                //     addCaseItem(item);
+                //     // alert(item.id);
+                // });
+            } else {
+                alert(data.searchInfo);
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("error");
@@ -57,7 +91,8 @@ function getPageSize() {
                         $('.log').prepend('<li>Requested page ' + page + '</li>');
                         getCaseOfEachPage(page);
                     }
-                });            }
+                });
+            }
         },
         error: function () {
             alert("error")
@@ -65,14 +100,18 @@ function getPageSize() {
     });
 }
 
-function getCaseOfEachPage(pageNum) {
+function clearCaseList() {
     var case_list = document.getElementById('case_list');
     var num = case_list.childNodes.length;
-    for(num - 1; num >= 0; num--){
-        if(case_list.childNodes.item(num) != null)
+    for (num - 1; num >= 0; num--) {
+        if (case_list.childNodes.item(num) != null)
         // alert(case_list.childNodes.item(num));
             case_list.removeChild(case_list.childNodes.item(num));
     }
+}
+
+function getCaseOfEachPage(pageNum) {
+    clearCaseList();
     $.ajax({
         url: "/manageAction/getPageContent",
         type: "POST",
@@ -106,13 +145,15 @@ function getReasonTypes() {
             if (data && data.success == "true") {
                 var as = document.getElementById('as-ul1');
                 $.each(data.types, function (i, item) {
-                    if(item != null) {
+                    if (item != null) {
                         var li = document.createElement("li");
                         var a = document.createElement("a");
                         a.appendChild(document.createTextNode(item));
                         a.value = item;
                         // a.value(item);
-                        a.onclick=function(){getTypeSize(this.value);};
+                        a.onclick = function () {
+                            getTypeSize(this.value);
+                        };
                         li.appendChild(a);
                         as.appendChild(li);
                     }
@@ -191,20 +232,17 @@ function getTypeSize(type) {
 }
 
 
-function getTypePage(type, page){
+function getTypePage(type, page) {
     // alert(page);
-    var case_list = document.getElementById('case_list');
-    var num = case_list.childNodes.length;
-    for(num - 1; num >= 0; num--){
-        if(case_list.childNodes.item(num) != null)
-            case_list.removeChild(case_list.childNodes.item(num));
-    }
+    clearCaseList()
     $.ajax({
         url: "/manageAction/getTypeContent",
         type: "POST",
         dataType: "json",
-        data: {"page": page,
-        "reason": type},
+        data: {
+            "page": page,
+            "reason": type
+        },
         async: false,
         success: function (data) {
             if (data && data.success == "true") {
@@ -221,4 +259,25 @@ function getTypePage(type, page){
             alert(textStatus);
         }
     });
+}
+
+function GetArgsFromHref(sHref, sArgName)
+{
+    var args    = sHref.split("?");
+    var retval = "";
+
+    if(args[0] == sHref) /*参数为空*/
+    {
+        return retval; /*无需做任何处理*/
+    }
+    var str = args[1];
+    args = str.split("&");
+    for(var i = 0; i < args.length; i ++)
+    {
+        str = args[i];
+        var arg = str.split("=");
+        if(arg.length <= 1) continue;
+        if(arg[0] == sArgName) retval = arg[1];
+    }
+    return retval;
 }

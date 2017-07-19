@@ -132,12 +132,12 @@
                 <div class="search" id="searchView">
                     <i> </i>
                     <div class="s-bar">
-                        <form>
+                        <%--<form>--%>
                             <input type="text" value="请输入案例关键字"
                                    onfocus="if (this.value == '请输入案例关键字'){this.value = '';}"
                                    onblur="if (this.value == '') {this.value = '请输入案例关键字';}" id="textField">
                             <input type="submit" value="搜索" onclick="search()"/>
-                        </form>
+                        <%--</form>--%>
                     </div>
                 </div>
                 <div class="login" id="loginView" style="display: none">
