@@ -183,7 +183,7 @@
                     <div>当事人： <span id="litigant">冯某某、郭某某</span></div>
                     <div>法律依据：<span id="evidence">中华人民共和国民事诉讼法：一百三十一条一款</span></div>
                     <div>关键字：<span id="keywords">合同 劳务</span></div>
-                    <div>
+                    <div id="similarCases">
                         相似案例：
                         <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
                         <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>

@@ -87,6 +87,27 @@ public class SearchController {
         return map;
     }
 
+    @RequestMapping(value = "getSimilarCases", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashedMap();
+        String keywordsStr = request.getParameter("keywords");
+        System.out.println("keywords:" + keywordsStr);
+
+        List<String> keywordList = null;
+        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(keywordList);
+        if(recomendDocumentVOS != null){
+            map.put("success", "true");
+            map.put("content", recomendDocumentVOS);
+        }else{
+            map.put("success", "false");
+            map.put("searchInfo", "无对应结果");
+        }
+
+//        ModelAndView modelAndView = new ModelAndView()
+        return map;
+    }
+
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response){

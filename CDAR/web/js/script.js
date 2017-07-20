@@ -167,3 +167,42 @@ function findCase(id) {
         }
     });
 }
+
+function getSimilarCases(keywords) {
+    $.ajax({
+        url: "/manageAction/findCase",
+        type: "POST",
+        dataType: "json",
+        data: {"keywords": keywords},
+        async: false,
+        success: function (data) {
+            // alert(data.success);
+            if (data && data.success == "true") {
+                $('.title').text("无");
+                $('.caseNumber').text("无");
+                $('.origin_document').text("无");
+                $('#courtName').text("无");
+                $('#property').text("无");
+                $('#reason').text("无");
+
+
+                if(data.content.process != null)
+                    $('#process').text(data.content.process);
+                if(data.content.endDate != null)
+                    $('#endDate').text(data.content.endDate);
+                if(data.content.litigant != null)
+                    $('#litigant').text(data.content.litigant);
+                if(data.content.evidence != null)
+                    $('#evidence').text(data.content.evidence);
+                if(data.content.keywords != null)
+                    $('#keywords').text(data.content.keywords);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("error");
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    });
+}
