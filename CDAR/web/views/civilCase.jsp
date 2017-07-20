@@ -186,8 +186,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- agileits-top-heading -->
             <div class="agileits-top-heading">
-                <div class="search"  id="searchView">
-                    <i> </i>
+                <div class="search">
+                    <%--<i> </i>--%>
                     <div class="s-bar">
                         <input type="text" value="请输入案例关键字"
                                onfocus="if (this.value == '请输入案例关键字'){this.value = '';}"

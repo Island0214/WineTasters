@@ -108,7 +108,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="../index.jsp">首页</a></li>
                             <li><a href="civilCase.jsp">民事案件</a></li>
-                            <li><a href="analyzeDoc.jsp">查询类案</a></li>
+                            <li><a href="#">查询类案</a></li>
                             <li class="dropdown">
                                 <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
                                     <!-- <b class="caret"></b> -->
@@ -126,8 +126,8 @@
             </div>
             <!-- agileits-top-heading -->
             <div class="agileits-top-heading">
-                <div class="search"  id="searchView">
-                    <i> </i>
+                <div class="search">
+                    <%--<i> </i>--%>
                     <div class="s-bar">
                         <input type="text" value="请输入案例关键字"
                                onfocus="if (this.value == '请输入案例关键字'){this.value = '';}"
@@ -236,7 +236,7 @@
                     <div>当事人： <span id="litigant">冯某某、郭某某</span></div>
                     <div>法律依据：<span id="evidence">中华人民共和国民事诉讼法：一百三十一条一款</span></div>
                     <div>关键字：<span id="keywords">合同 劳务</span></div>
-                    <div>
+                    <div id="similarCases">
                         相似案例：
                         <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
                         <a target="_Blank" href="http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb">http://wenshu.court.gov.cn/content/content?DocID=1a6ebb9e-f279-4cc4-a989-a74500b820bb</a>
