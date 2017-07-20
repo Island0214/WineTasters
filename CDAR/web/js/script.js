@@ -1,3 +1,5 @@
+var keywordsStr = null;
+var similarCases = document.getElementById("similarCases");
 function up(){
 
     var ul = $('#upload ul');
@@ -165,8 +167,12 @@ function findCase(id) {
                     $('#litigant').text(data.content.litigant);
                 if(data.content.evidence != null)
                     $('#evidence').text(data.content.evidence);
-                if(data.content.keywords != null)
+                if(data.content.keywords != null) {
                     $('#keywords').text(data.content.keywords);
+                    keywordsStr = data.content.keywords;
+                    getSimilarCases(keywordsStr);
+                }
+
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -178,38 +184,25 @@ function findCase(id) {
     });
 }
 
-function getSimilarCases(keywords) {
+function getSimilarCases(keywordsStr) {
     $.ajax({
-        url: "/manageAction/findCase",
+        url: "/manageAction/getSimilarCases",
         type: "POST",
         dataType: "json",
-        data: {"keywords": keywords},
+        data: {"keywords": keywordsStr},
         async: false,
         success: function (data) {
-            // alert(data.success);
-            if (data && data.success == "true") {
-                $('.title').text("无");
-                $('.caseNumber').text("无");
-                $('.origin_document').text("无");
-                $('#courtName').text("无");
-                $('#property').text("无");
-                $('#reason').text("无");
-
-
-                if(data.content.process != null)
-                    $('#process').text(data.content.process);
-                if(data.content.endDate != null)
-                    $('#endDate').text(data.content.endDate);
-                if(data.content.litigant != null)
-                    $('#litigant').text(data.content.litigant);
-                if(data.content.evidence != null)
-                    $('#evidence').text(data.content.evidence);
-                if(data.content.keywords != null)
-                    $('#keywords').text(data.content.keywords);
-            }
+            $.each(data.content, function (i, item) {
+                var link = document.createElement("a");
+                link.appendChild(document.createTextNode(item.title));
+                link.target = "_blank";
+                var caseNum = (encodeURIComponent(item.caseNumber));
+                link.href = "/views/docDetail.jsp?id=" + caseNum;
+                similarCases.appendChild(link);
+            });
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
+            alert("error...");
             alert(XMLHttpRequest.status);
             alert(XMLHttpRequest.readyState);
             alert(textStatus);
