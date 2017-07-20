@@ -35,6 +35,10 @@ public class DocumentDaoImpl implements DocumentDao{
     @Override
     public boolean saveDocument(DocumentPO documentPO) {
         try {
+            //过滤掉含有提示关键字的案件
+            if(documentPO.getOriginDocument().contains("提示：")){
+                return false;
+            }
             Session session = getSession();
             session.beginTransaction();
             session.save(documentPO);
@@ -95,7 +99,7 @@ public class DocumentDaoImpl implements DocumentDao{
             q.setParameter(i,"%"+keywords.get(i)+"%");
         }
 
-        q.setMaxResults(10);
+        q.setMaxResults(5);
 
         List<DocumentPO> result = q.getResultList();
         session.close();
