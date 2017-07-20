@@ -122,6 +122,7 @@ public class SearchController {
         File file = fi.getStoreLocation();
         try {
             String up = manageService.uploadDocument(file);
+            System.out.println(up);
             if(up != null){
                 map.put("success", "true");
                 map.put("caseID", up);
