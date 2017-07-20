@@ -61,3 +61,433 @@
     -webkit-box-shadow:3px 5px 20px rgba(0,0,0,.8);
     box-shadow:3px 5px 20px rgba(0,0,0,.8)
 }
+
+.clear {
+    clear: both;
+}
+.container2 {
+    width: 70%;
+    margin: 50px auto;
+}
+.tabs {
+    background-color: #bdab73;
+    border-radius: 5px;
+    padding: .7em;
+    min-height: 482px;
+}
+.tab-left {
+    width: 18%;
+    float: left;
+}
+.tab-right {
+    float: left;
+    width: 82%;
+    background-color: #EEE;
+    border-radius: 5px;
+}
+.tab{
+    clear:both;
+    padding: 0px;
+}
+.tab_box{
+    background:#fd926d;
+    padding: 2px;
+}
+.top1{
+    margin-top: 2%;
+}
+.resp-tabs-list {
+    text-align:center;
+    padding-left: 10px;
+    text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+    rgba(80, 80, 80, 0.07) 2px 2px,
+    rgba(80, 80, 80, 0.09) 3px 3px,
+    rgba(80, 80, 80, 0.04) 4px 4px,
+    rgba(80, 80, 80, 0.06) 5px 5px;
+}
+.resp-tab-item {
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    outline: none;
+    padding: 15px;
+    text-align:left;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.resp-tab-item：hover {
+    background: rgba(127,95,0,.4);
+}
+.resp-tab-active {
+    position: relative;
+    background: rgba(127,95,0,.2);
+    color: #ffffff;
+}
+.resp-tab-active:before {
+    content: '';
+    border-top: 15px solid rgba(255, 185, 0, 0);
+    border-bottom: 15px solid rgba(255, 185, 0, 0);
+    border-right: 15px solid floralwhite;
+    position: absolute;
+    top: 18%;
+    right: 0%;
+    opacity: .9;
+}
+.resp-tabs-container {
+    clear: left;
+}
+
+.resp-tab-content {
+    display: none;
+}
+
+h2.resp-accordion {
+    cursor: pointer;
+    display: none;
+}
+ul.w3agile {
+    float: left;
+}
+.resp-content-active, .resp-accordion-active {
+    display: block;
+}
+
+.tab-content1 img {
+    width: 100%;
+}
+.tab-content1 h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #00BCD4;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.tab-content1 h4 {
+    font-size: 15px;
+    color: #636363;
+    margin-left: 10px;
+}
+
+/*-- Hover-Styles --*/
+.tab-content4 p {
+    padding: 0 30px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #636363;
+}
+.tab-content4 span {
+    font-size: 20px;
+    float: right;
+    margin: 25px 20px 0 0;
+    color: #00BCD4;
+}
+
+/*-- Index-Page-Styling --*/
+input.name {
+    width: 92%;
+    padding: 12px 10px 12px 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+input.password {
+    width: 92%;
+    padding: 12px 10px 12px 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+input.email {
+    width: 92%;
+    padding: 12px 10px 12px 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+input.location {
+    width: 92%;
+    padding: 12px 10px 12px 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.form2 input[type="submit"], .agile-send-mail input[type="submit"] {
+    width: 100%;
+    background-color: #073763;
+    color: #fff;
+    padding: 15px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.form2 input[type="submit"]:hover, .agile-send-mail input[type="submit"]:hover {
+    background-color:#b18e32;
+}
+
+label {
+    color: #e8e8e8;
+}
+.information input[type="submit"] {
+    float: right;
+    background-color: #b18e32;
+    color: #fff;
+    padding: 7px 15px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.6);
+}
+.information input[type="submit"]:hover {
+    background-color: #b18e32;
+    opacity: .7;
+}
+.information, .form2.agileits, .agileinfo-recover, .wthree-subscribe, .agile-send-mail {
+    background: floralwhite;
+    padding: 1.5em 14em;
+    border-radius: 5px;
+    /*border: 1px solid #001642;*/
+}
+
+input.done, input.no-thanks {
+    margin-left: 10%;
+    background-color: #b18e32 !important;
+}
+input.done:hover, input.no-thanks:hover {
+    background-color: #073763 !important;
+}
+.agileinfo-recover input.number {
+    width: 92%;
+    padding: 12px 10px 12px 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.agile-send-mail  textarea {
+    width: 92%;
+    resize: none;
+    padding: 10px;
+    height: 110px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+input[type="submit"] {
+    transition: 0.5s all;
+    webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+h3 {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/*--- Responsive Code ---*/
+@media screen and (max-width: 1920px) {
+    .container2 {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1366px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .container2 {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container2 {
+        width: 74%;
+    }
+}
+@media screen and (max-width: 736px) {
+    .container2 {
+        width: 76%;
+    }
+}
+@media screen and (max-width: 667px) {
+    .container2 {
+        width:85%;
+    }
+}
+@media screen and (max-width: 640px) {
+    .container2 {
+        width: 87%;
+    }
+    h1 {
+        font-size: 34px;
+    }
+    h3 {
+        font-size: 26px;
+    }
+
+}
+@media screen and (max-width: 600px) {
+    .container2 {
+        width: 93%;
+    }
+}
+@media screen and (max-width: 568px) {
+    .container2 {
+        width: 94%;
+    }
+    input.name,input.password,input.email,input.location,.agileinfo-recover input.number,.agile-send-mail  textarea {
+        width: 91%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .container2 {
+        width: 94%;
+    }
+    h1 {
+        font-size: 28px;
+        margin: 30px 0;
+    }
+    input.name, input.password, input.email, input.location, .agileinfo-recover input.number, .agile-send-mail textarea {
+        width: 89%;
+    }
+    .resp-tab-item {
+        font-size: 14px;
+    }
+    .information input[type="submit"] {
+        margin-top: 20px;
+    }
+    .agileinfo-recover input[type="submit"], .wthree-subscribe input[type="submit"] {
+        width: 47%;
+    }
+    input.done, input.no-thanks {
+        margin-left: 2%;
+        background-color: #b18e32 !important;
+    }
+
+    .resp-tab-item {
+        padding: 12px;
+    }
+    .resp-tab-active:before {
+        top: 16%;
+    }
+}
+@media screen and (max-width: 414px) {
+    .container2 {
+        width: 94%;
+    }
+    .tabs {
+        padding: 1em;
+    }
+    .information, .form2.agileits, .agileinfo-recover, .wthree-subscribe, .agile-send-mail {
+        padding: 1em;
+    }
+    .resp-tab-item {
+        font-size: 13px;
+    }
+    input.name, input.password, input.email, input.location, .agileinfo-recover input.number, .agile-send-mail textarea {
+        width: 80%;
+        padding: 10px 10px 10px 10px;
+        font-size: 13px;
+    }
+
+    .information input[type="submit"] {
+        font-size: 13px;
+    }
+    .form2 input[type="submit"], .agile-send-mail input[type="submit"] {
+        padding: 10px;
+        font-size: 13px;
+        margin-top: 0px;
+    }
+    .tabs {
+        min-height: 394px;
+    }
+
+    .agileinfo-recover input[type="submit"], .wthree-subscribe input[type="submit"] {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 384px) {
+    .container2 {
+        width: 94%;
+    }
+    .tab-left {
+        width: 100%;
+        float: left;
+    }
+    .tab-right {
+        float: left;
+        width: 100%;
+        background-color: #EEE;
+        margin-top: 20px;
+    }
+
+    .information input[type="submit"] {
+        margin-top: 0;
+    }
+    .agile-send-mail textarea {
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .container2 {
+        width: 90%;
+    }
+    h1 {
+        font-size: 24px;
+        margin: 25px 0;
+    }
+}
