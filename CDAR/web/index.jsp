@@ -131,7 +131,7 @@
                 <p>Nunc vel efficitur sem, sed convallis mi. Praesent <span>sollicitudin aliquam eros</span></p>
                 <div class="w3layouts-border agileits-border"> </div> -->
                 <div class="search" id="searchView">
-                    <i> </i>
+                    <%--<i> </i>--%>
                     <div class="s-bar">
                         <%--<form>--%>
                             <input type="text" value="请输入案例关键字"

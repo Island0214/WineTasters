@@ -107,7 +107,7 @@
             <!-- agileits-top-heading -->
             <div class="agileits-top-heading">
                 <div class="search">
-                    <i> </i>
+                    <%--<i> </i>--%>
                     <div class="s-bar">
                         <form>
                             <input type="text" value="请输入案例关键字" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入案例关键字';}">
