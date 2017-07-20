@@ -134,7 +134,7 @@
                         <a>上传文件</a>
                         <input type="file" id="file" name="file" value="选择文件"/>
                     </div>
-                    <ul>
+                    <ul id="fileArea">
                         <!-- The file uploads will be shown here -->
                     </ul>
                 </form>
