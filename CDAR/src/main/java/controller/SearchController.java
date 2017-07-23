@@ -159,9 +159,37 @@ public class SearchController {
     @ResponseBody
     public Map<String, Object> getPageSize() {
         Map<String, Object> map = new HashedMap();
-        int pageSize = manageService.getPageNumberByCategory("民事案件", 10);
+        int pageSize = manageService.getPageNumberByCategory("刑事案件", 10);
         map.put("success", "true");
         map.put("pageSize", pageSize);
+        return map;
+    }
+
+    @RequestMapping(value = "getPageSizeOfSearchResult", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getPageSizeOfSearchResult(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashedMap();
+        String input = request.getParameter("input");
+        int pageSize = manageService.getPageNumberByRex(input, 10);
+        System.out.println(input);
+        System.out.println(pageSize);
+        map.put("success", "true");
+        map.put("pageSize", pageSize);
+        return map;
+    }
+
+    @RequestMapping(value = "getSearchContent", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getSearchContent(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashedMap();
+        String input = request.getParameter("input");
+        int page = Integer.parseInt(request.getParameter("page"));
+        System.out.println(input);
+        System.out.println(page);
+        List<DocumentVO> documentVOS = manageService.getDocumentsByRex(input, page,10);
+
+        map.put("success", "true");
+        map.put("content", documentVOS);
         return map;
     }
 
@@ -172,7 +200,7 @@ public class SearchController {
 
         Map<String, Object> map = new HashedMap();
         int page = Integer.parseInt(request.getParameter("page"));
-        List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("民事案件", page,10);
+        List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("刑事案件", page,10);
 
         map.put("success", "true");
         map.put("content", documentVOS);

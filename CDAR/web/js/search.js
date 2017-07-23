@@ -3,57 +3,114 @@
  */
 function search() {
     var input = $('#textField').val();
+    window.location.href = '../views/civilCase.jsp?input=' + input;
+
+    // // $.ajax({
+    // //     url:"/views/civilCase.jsp",
+    // //     dataType:"jsp",
+    // //     type:"get",
+    // //     success:function(data){
+    // //         //div加载页面
+    // //         $("#div").html(data);
+    // //     }
+    // // });
+    // // window.location.href = "views/civilCase.jsp";
+    // // document.location.href='/views/civilCase.jsp';
+    // // alert(input);
     // $.ajax({
-    //     url:"/views/civilCase.jsp",
-    //     dataType:"jsp",
-    //     type:"get",
-    //     success:function(data){
-    //         //div加载页面
-    //         $("#div").html(data);
+    //     url: "/manageAction/searchCase",
+    //     type: "POST",
+    //     // dataType: "json",
+    //     data: {"data": input,
+    //     "page": 1},
+    //     async: false,
+    //     success: function (data) {
+    //         // alert("success");
+    //         if (data.success == "true") {
+    //             // alert(window.location.href);
+    //             // alert('/views/civilCase.jsp?input=' + input);
+    //             window.location.href = '../views/civilCase.jsp?input=' + input;
+    //             // $('#caseSearch').html(input);
+    //             // clearCaseList();
+    //             // $('.pagination').jqPagination({
+    //             //     link_string: '/?page={page_number}',
+    //             //     max_page: 1,
+    //             //     paged: function (page) {
+    //             //         // do something with the page variable
+    //             //         $('.log').prepend('<li>Requested page ' + page + '</li>');
+    //             //     }
+    //             //
+    //             // });
+    //             // $.each(data.content, function (i, item) {
+    //             //     addCaseItem(item);
+    //             //     // alert(item.id);
+    //             // });
+    //         } else {
+    //             fail_alert(data.searchInfo);
+    //         }
+    //     },
+    //     error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //         fail_alert("搜索失败");
+    //         // alert(XMLHttpRequest.status);
+    //         // alert(XMLHttpRequest.readyState);
+    //         // alert(textStatus);
     //     }
     // });
-    // window.location.href = "views/civilCase.jsp";
-    // document.location.href='/views/civilCase.jsp';
-    // alert(input);
+}
+
+function getPageSizeOfSearchResult(input) {
+    jQuery.ajax({
+        type: 'POST',
+        url: '/manageAction/getPageSizeOfSearchResult',
+        data: {"input": input},
+        dataType: 'json',
+        success: function (data) {
+            if (data && data.success == "true") {
+                $('.pagination').jqPagination({
+                    link_string: '/?page={page_number}',
+                    max_page: data.pageSize,
+                    paged: function (page) {
+                        // do something with the page variable
+                        $('.log').prepend('<li>Requested page ' + page + '</li>');
+                        getPageOfSearchResult(input, page);
+                    }
+                });
+            }
+        },
+        error: function () {
+            fail_alert("搜索失败");
+        }
+    });
+}
+
+function getPageOfSearchResult(input, page) {
+    clearCaseList();
     $.ajax({
-        url: "/manageAction/searchCase",
+        url: "/manageAction/getSearchContent",
         type: "POST",
-        // dataType: "json",
-        data: {"data": input,
-        "page": 1},
+        dataType: "json",
+        data: {
+            "page": page,
+            "input": input
+        },
         async: false,
         success: function (data) {
-            // alert("success");
-            if (data.success == "true") {
-                // alert(window.location.href);
-                // alert('/views/civilCase.jsp?input=' + input);
-                window.location.href = '../views/civilCase.jsp?input=' + input;
-                // $('#caseSearch').html(input);
-                // clearCaseList();
-                // $('.pagination').jqPagination({
-                //     link_string: '/?page={page_number}',
-                //     max_page: 1,
-                //     paged: function (page) {
-                //         // do something with the page variable
-                //         $('.log').prepend('<li>Requested page ' + page + '</li>');
-                //     }
-                //
-                // });
-                // $.each(data.content, function (i, item) {
-                //     addCaseItem(item);
-                //     // alert(item.id);
-                // });
-            } else {
-                fail_alert(data.searchInfo);
+            if (data && data.success == "true") {
+                $.each(data.content, function (i, item) {
+                    success_alert("搜索成功");
+                    addCaseItem(item);
+                    // alert(item.id);
+                });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            fail_alert("搜索失败");
+            fail_alert("获得信息失败");
             // alert(XMLHttpRequest.status);
             // alert(XMLHttpRequest.readyState);
             // alert(textStatus);
         }
     });
+    scrollTo(0,0);
 }
 
 function getPageSize() {
@@ -224,7 +281,7 @@ function getTypeSize(type) {
 
 function getTypePage(type, page) {
     // alert(page);
-    clearCaseList()
+    clearCaseList();
     $.ajax({
         url: "/manageAction/getTypeContent",
         type: "POST",
