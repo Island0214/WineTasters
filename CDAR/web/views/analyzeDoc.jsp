@@ -277,9 +277,9 @@
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="civilCase.html">民事案件</a></li>
-                    <li><a href="gallery.html">查询类案</a></li>
-                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="civilCase.jsp">民事案件</a></li>
+                    <li><a href="analyzeDoc.jsp">查询类案</a></li>
+                    <li><a href="#">Icons</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3ls-footer-grid">
