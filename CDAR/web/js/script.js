@@ -61,14 +61,14 @@ function up(){
                 // alert(data);
                data.submit().success(function (data) {
                    if(data.success == "true"){
-                       alert("success");
+                       success_alert("上床成功");
                        $('#resultPage').css("display", "block");
                        findCase(data.caseID);
 
                        // $('.title').text(data.);
                    }
                    else{
-                       alert("该案件已存在！");
+                       fail_alert("该案件已存在！");
                    }
                });
                // alert(j);
@@ -176,10 +176,10 @@ function findCase(id) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("上传失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }
@@ -202,10 +202,10 @@ function getSimilarCases(keywordsStr) {
             });
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error...");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("上传失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }

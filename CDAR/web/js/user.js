@@ -28,18 +28,19 @@ function log() {
                 setCookie("username", username, "h1");
                 // alert("success");
                 logInfo(username);
+                fail_alert("登陆成功");
                 return;
             }
             if (data.result == "fail") {
-                alert(data.loginInfo);
+                fail_alert(data.loginInfo);
                 return;
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("登陆失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }
@@ -54,7 +55,7 @@ function signIn() {
         password = $('#signInText').val();
     }
     if (username == "" || password == "") {
-        alert("请输入完整信息");
+        fail_alert("请输入完整信息");
         return;
     }
 
@@ -70,20 +71,20 @@ function signIn() {
         success: function (data) {
             // alert("ok");
             if (data.result == "fail") {
-                alert(data.signinInfo);
+                fail_alert(data.signinInfo);
             }
             if (data.result == "success") {
-                alert("注册成功");
+                success_alert("注册成功");
                 closeSigninView();
                 setCookie("username", username, "h1");
                 // logInfo(username);
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("error");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }

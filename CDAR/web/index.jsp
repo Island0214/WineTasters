@@ -22,6 +22,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--// bootstrap-css -->
     <!-- css -->
+    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all"/>
@@ -234,9 +235,9 @@
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="about.html">民事案件</a></li>
-                    <li><a href="gallery.html">查询类案</a></li>
-                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="views/civilCase.jsp">民事案件</a></li>
+                    <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
+                    <li><a href="#">Icons</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3ls-footer-grid">
@@ -261,6 +262,7 @@
     </div>
 </div>
 <!-- //copyright -->
+<script type="text/javascript" src="../js/alert.js"></script>
 <script src="../js/responsiveslides.min.js"></script>
 <script src="../js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../js/move-top.js"></script>

@@ -24,6 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--// bootstrap-css -->
     <!-- css -->
+    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/searchForm2.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all"/>
@@ -119,10 +120,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 <div class="banner">
     <div class="header">
-        <div class="sign_in_logo">
-            <a href="" title="登录"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
+        <div id="preLog" class="sign_in_logo">
+            <a href="#" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
             |
-            <a href="" title="注册"><img src="../images/signup.png" alt="" width="25px" height="25px"></a>
+            <a href="#" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px" height="25px"></a>
+        </div>
+        <div id="afterLog" class="sign_in_logo" style="display: none">
+            <ul class="nav nav-pills">
+                <%--<li class="active"><a href="#">Home</a></li>--%>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span id="userNameLabel">asd</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" style="min-width: 100px;">
+                        <li><a href="#" onclick="">用户中心</a></li>
+                        <li><a href="#" onclick="quitLog()">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <div class="container">
             <div class="header-left">
@@ -173,10 +190,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="search">
                     <%--<i> </i>--%>
                     <div class="s-bar">
-                        <input type="text" value="请输入案例关键字" onfocus="this.value = '';"
+                        <input type="text" value="请输入案例关键字"
+                               onfocus="if (this.value == '请输入案例关键字'){this.value = '';}"
                                onblur="if (this.value == '') {this.value = '请输入案例关键字';}" id="textField">
                         <input type="submit" value="搜索" onclick="search()"/>
                     </div>
+                </div>
+                <div class="login" id="loginView" style="display: none">
+                    <div class="l-bar">
+                        <button onclick="closeLoginView()"></button>
+                        <p style="margin-left: 0%; margin-top: 0%;">账户：</p>
+                        <input type="text" style="margin-left: 0%; text-align: left; display: inline-block;"
+                               id="logInUsername">
+                        <br>
+                        <p style="margin-left: 0%; margin-top: 10%;">密码：</p>
+                        <input type="password" style="margin-left: 0%; text-align: left; display: inline-block;"
+                               id="logInPassword">
+                        <br>
+                        <input type="submit" value="登陆" onclick="log()">
+                    </div>
+                </div>
+                <div class="login" id="signinView" style="display: none">
+                    <div class="l-bar">
+                        <button onclick="closeSigninView()"></button>
+                        <p style="margin-left: 0%; margin-top: 0%;">账户：</p>
+                        <input type="text" style="margin-left: 0%; text-align: left; display: inline-block;"
+                               id="signInUsername">
+                        <br>
+                        <p style="margin-left: 0%; margin-top: 10%;">密码：</p>
+                        <input type="text" style="margin-left: 0%; text-align: left; display: none;" id="signInText">
+                        <input type="password" style="margin-left: 0%; text-align: left; display: inline-block;"
+                               id="signInPassword">
+                        <button onclick="showPassword()"
+                                style="margin-left: 0%; margin-top: 10%; background-image: url(/images/closeEye.png)"
+                                id="eyeButton"></button>
+                        <br>
+                        <input type="submit" value="注册" onclick="signIn()">
+                    </div>
+                </div>
+                <div id="uploadView" style="display: none">
+                    <input type="file" id="file" name="file" value="选择文件"/>
+                    <input type="button" value="上传" onclick="upload();"/>
                 </div>
             </div>
             <!-- //agileits-top-heading -->
@@ -354,9 +408,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="civilCase.html">民事案件</a></li>
-                    <li><a href="gallery.html">查询类案</a></li>
-                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="civilCase.jsp">民事案件</a></li>
+                    <li><a href="analyzeDoc.jsp">查询类案</a></li>
+                    <li><a href="#">Icons</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3ls-footer-grid">
@@ -381,6 +435,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- //copyright -->
+<script type="text/javascript" src="../js/alert.js"></script>
 <script src="../js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../js/move-top.js"></script>
 <script type="text/javascript" src="../js/easing.js"></script>

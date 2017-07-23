@@ -44,14 +44,14 @@ function search() {
                 //     // alert(item.id);
                 // });
             } else {
-                alert(data.searchInfo);
+                fail_alert(data.searchInfo);
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("搜索失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }
@@ -76,7 +76,7 @@ function getPageSize() {
             }
         },
         error: function () {
-            alert("error")
+            fail_alert("搜索失败");
         }
     });
 }
@@ -108,12 +108,13 @@ function getCaseOfEachPage(pageNum) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("获得信息失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
+    scrollTo(0,0);
 }
 
 function getReasonTypes() {
@@ -142,7 +143,7 @@ function getReasonTypes() {
             }
         },
         error: function () {
-            alert("error")
+            fail_alert("获得信息失败");
         }
     });
 }
@@ -215,7 +216,7 @@ function getTypeSize(type) {
             }
         },
         error: function () {
-            alert("error")
+            fail_alert("获得信息失败");
         }
     });
 }
@@ -242,12 +243,13 @@ function getTypePage(type, page) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("获得信息失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
+    scrollTo(0,0);
 }
 
 function GetArgsFromHref(sHref, sArgName)
