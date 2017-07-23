@@ -22,6 +22,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--// bootstrap-css -->
     <!-- css -->
+    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all"/>
@@ -261,6 +262,7 @@
     </div>
 </div>
 <!-- //copyright -->
+<script type="text/javascript" src="../js/alert.js"></script>
 <script src="../js/responsiveslides.min.js"></script>
 <script src="../js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../js/move-top.js"></script>

@@ -17,13 +17,13 @@ function upload() {
         fileElementId: 'file',
         dataType: 'json',
         success: function (data) {
-            alert(data.success);
+            success_alert(data.success);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("上传失败");
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            fail_alert("上传失败");
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
         }
     });
 }
