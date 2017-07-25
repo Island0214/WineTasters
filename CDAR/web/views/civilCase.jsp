@@ -69,44 +69,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 getCaseOfEachPage(1);
             } else if (input != "" && $('#textField').val() != "") {
                 $('#textField').val(input);
-                $.ajax({
-                    url: "/manageAction/searchCase",
-                    type: "POST",
-                    // dataType: "json",
-                    data: {
-                        "data": input,
-                        "page": 1
-                    },
-                    async: false,
-                    success: function (data) {
-//                        alert("success");
-                        if (data.success == "true") {
-                            // $('#caseSearch').html(input);
-                            clearCaseList();
-                            $('.pagination').jqPagination({
-                                link_string: '/?page={page_number}',
-                                max_page: 1,
-                                paged: function (page) {
-                                    // do something with the page variable
-                                    $('.log').prepend('<li>Requested page ' + page + '</li>');
-                                }
-
-                            });
-                            $.each(data.content, function (i, item) {
-                                addCaseItem(item);
-                                // alert(item.id);
-                            });
-                        } else {
-                            alert(data.searchInfo);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert("error");
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    }
-                });
+                getPageSizeOfSearchResult(input);
+                getPageOfSearchResult(input, 1);
+//                $.ajax({
+//                    url: "/manageAction/searchCase",
+//                    type: "POST",
+//                    // dataType: "json",
+//                    data: {
+//                        "data": input,
+//                        "page": 1
+//                    },
+//                    async: false,
+//                    success: function (data) {
+////                        alert("success");
+//                        if (data.success == "true") {
+//                            // $('#caseSearch').html(input);
+//                            clearCaseList();
+//                            $('.pagination').jqPagination({
+//                                link_string: '/?page={page_number}',
+//                                max_page: 1,
+//                                paged: function (page) {
+//                                    // do something with the page variable
+//                                    $('.log').prepend('<li>Requested page ' + page + '</li>');
+//                                }
+//
+//                            });
+//                            $.each(data.content, function (i, item) {
+//                                addCaseItem(item);
+//                                // alert(item.id);
+//                            });
+//                        } else {
+//                            alert(data.searchInfo);
+//                        }
+//                    },
+//                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                        alert("error");
+//                        alert(XMLHttpRequest.status);
+//                        alert(XMLHttpRequest.readyState);
+//                        alert(textStatus);
+//                    }
+//                });
 
             }
         });
@@ -121,9 +123,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner">
     <div class="header">
         <div id="preLog" class="sign_in_logo">
-            <a href="#" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px" height="25px"></a>
+            <a href="#" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px"
+                                                                  height="25px"></a>
             |
-            <a href="#" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px" height="25px"></a>
+            <a href="#" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px"
+                                                                   height="25px"></a>
         </div>
         <div id="afterLog" class="sign_in_logo" style="display: none">
             <ul class="nav nav-pills">
@@ -168,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="../index.jsp">首页</a></li>
-                            <li><a class="active" href="civilCase.jsp">民事案件</a></li>
+                            <li><a class="active" href="civilCase.jsp">刑事案件</a></li>
                             <li><a href="analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
                                 <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About

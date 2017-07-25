@@ -150,7 +150,7 @@ function findCase(id) {
                 if(data.content.title != null)
                     $('.title').text(data.content.title);
                 if(data.content.id != null)
-                    $('.caseNumber').text(data.content.id);
+                    $('.caseNumber').text(data.content.caseNumber);
                 if(data.content.originDocument != null)
                     $('.origin_document').text(data.content.originDocument);
                 if(data.content.court != null)
