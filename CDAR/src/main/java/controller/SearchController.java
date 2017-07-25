@@ -92,12 +92,13 @@ public class SearchController {
     public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashedMap();
         String keywordsStr = request.getParameter("keywords");
-//        System.out.println("keywords:" + keywordsStr);
+        String caseNumber = request.getParameter("caseNumber");
         List<String> keywordList = Arrays.asList(keywordsStr.split("/"));
 //        for (int i = 0; i < keywordList.size(); i++) {
 //            System.out.println("list:" + keywordList.get(i));
 //        }
-        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords("",keywordList);
+
+        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(caseNumber,keywordList);
         if(recomendDocumentVOS != null){
             for (int i = 0; i < recomendDocumentVOS.size(); i++) {
                 System.out.println("vo:" + recomendDocumentVOS.get(i).caseNumber);

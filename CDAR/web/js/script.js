@@ -1,4 +1,5 @@
 var keywordsStr = null;
+var caseNumber = null;
 var similarCases = document.getElementById("similarCases");
 function up(){
 
@@ -131,7 +132,9 @@ function findCase(id) {
         url: "/manageAction/findCase",
         type: "POST",
         dataType: "json",
-        data: {"id": id},
+        data: {
+            "id": id
+        },
         async: false,
         success: function (data) {
             // alert(data.success);
@@ -170,7 +173,8 @@ function findCase(id) {
                 if(data.content.keywords != null) {
                     $('#keywords').text(data.content.keywords);
                     keywordsStr = data.content.keywords;
-                    getSimilarCases(keywordsStr);
+                    caseNumber = data.content.caseNumber;
+                    getSimilarCases(keywordsStr, caseNumber);
                 }
 
             }
@@ -184,16 +188,21 @@ function findCase(id) {
     });
 }
 
-function getSimilarCases(keywordsStr) {
+function getSimilarCases(keywordsStr, caseNumber) {
     $.ajax({
         url: "/manageAction/getSimilarCases",
         type: "POST",
         dataType: "json",
-        data: {"keywords": keywordsStr},
+        data: {
+            "keywords": keywordsStr,
+            "caseNumber": caseNumber
+        },
         async: false,
         success: function (data) {
+            var similarCases = document.getElementById("similarCases");
             $.each(data.content, function (i, item) {
                 var link = document.createElement("a");
+                console.log(item.title);
                 link.appendChild(document.createTextNode(item.title));
                 link.target = "_blank";
                 var caseNum = (encodeURIComponent(item.caseNumber));

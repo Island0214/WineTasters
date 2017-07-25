@@ -110,7 +110,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="../index.jsp">首页</a></li>
                             <li><a href="civilCase.jsp">刑事案件</a></li>
-                            <li><a href="#">查询类案</a></li>
+                            <li><a href="analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
                                 <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
                                     <!-- <b class="caret"></b> -->
