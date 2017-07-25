@@ -99,7 +99,7 @@ public class DocumentDaoImpl implements DocumentDao{
             q.setParameter(i,"%"+keywords.get(i)+"%");
         }
 
-        q.setMaxResults(5);
+        q.setMaxResults(30);
 
         List<DocumentPO> result = q.getResultList();
         session.close();
