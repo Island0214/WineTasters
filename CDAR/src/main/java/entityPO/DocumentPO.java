@@ -24,7 +24,7 @@ public class DocumentPO {
     //全文、文首、审判程序
     private String process;
     //全文、文尾、裁判时间
-    private String endDate;
+    private Date endDate;
     //全文、诉讼参与人全集、（被告、被告）
     //当事人
     private String litigant;
@@ -81,11 +81,11 @@ public class DocumentPO {
         this.process = process;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

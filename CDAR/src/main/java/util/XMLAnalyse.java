@@ -75,8 +75,7 @@ public class XMLAnalyse {
             //可能会有"2Ｏ1Ｏ年12月16日"、"本件与原件核对无异2008年4月10日"、"2ОО9年12月25日"(O->0)
             try {
                 Date date = DateTransformer.stringToDate(node.attributeValue("value").replace("Ｏ", "0").replace("О", "0").replace("廿", "2").replace("卅", "3").replace("元", "1").replace("…", "1").replace("农", "").replaceAll("^.*(\\d{4}.*)", "$1"));
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                documentPO.setEndDate(sdf.format(date));
+                documentPO.setEndDate(date);
             }catch (ParseException e){
                 //"第40条公民在遗书中涉及死后个人财产处分的内容，确为死者真实意思的表示，有本人签名并注明了年、月1日"
                 //如上则date为null
@@ -92,7 +91,7 @@ public class XMLAnalyse {
                 if (child.getName().equals("SSCYRMC")) {
                     name = child.attributeValue("value");
                 }
-                if (child.getName().equals("SSSF") && (child.attributeValue("value").equals("原告") || child.attributeValue("value").equals("被告"))) {
+                if (child.getName().equals("SSSF") && (child.attributeValue("value").equals("原告") ||child.attributeValue("value").equals("原告人") ||child.attributeValue("value").equals("被告") || child.attributeValue("value").equals("被告人"))) {
                     if (res == null) {
                         res = name;
                     } else {
@@ -108,12 +107,12 @@ public class XMLAnalyse {
             String res = "";
             //诉讼记录
             String ssjl = node.attributeValue("value");
-            Pattern p = Pattern.compile("(?<=被告)(.*?)(?=，|、)");
+            Pattern p = Pattern.compile("(?<=被告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
             Matcher m = p.matcher(ssjl);
             if(m.find()){
                 res+=m.group();
             }
-            p = Pattern.compile("(?<=原告)(.*?)(?=，|、)");
+            p = Pattern.compile("(?<=原告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
             m = p.matcher(ssjl);
             if(m.find()){
                 res+="、";
@@ -179,11 +178,12 @@ public class XMLAnalyse {
             File[] files = folder.listFiles();
             for (File file : files) {
                 DocumentPO po = XMLAnalyse.readXMLFile(file);
+                po.setProperty("刑事案件");
                 po.setKeywords(extractKeyword.extractKeyword(po.getOriginDocument()));
                 if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
                     documentDao.saveDocument(po);
                 }
-//                XMLAnalyse.readXMLFile(file.getPath());
+//                System.out.println(po);
             }
         }
     }

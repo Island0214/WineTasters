@@ -12,9 +12,6 @@ public class DateTransformer {
 
     private static SimpleDateFormat sdf;
 
-    public DateTransformer() {
-    }
-
     public static Date stringToDate(String str) throws ParseException {
         if(sdf == null){
             sdf = new SimpleDateFormat("yyyy年M月d日");

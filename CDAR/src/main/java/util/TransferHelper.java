@@ -29,7 +29,7 @@ public class TransferHelper {
         }
 
         return new DocumentVO(documentPO.getId(), documentPO.getCaseNumber(), documentPO.getCaseNumber(), documentPO.getCourt(),
-                documentPO.getEndDate(), documentPO.getJudgeReason(), documentPO.getProperty(), documentPO.getEvidence(),
+                DateTransformer.dateToString(documentPO.getEndDate()), documentPO.getJudgeReason(), documentPO.getProperty(), documentPO.getEvidence(),
                 documentPO.getProcess(), documentPO.getReason(), documentPO.getLitigant(), documentPO.getOriginDocument(), documentPO.getKeywords());
     }
 
