@@ -172,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="../index.jsp">首页</a></li>
-                            <li><a class="active" href="civilCase.jsp">民事案件</a></li>
+                            <li><a class="active" href="civilCase.jsp">刑事案件</a></li>
                             <li><a href="analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
                                 <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
