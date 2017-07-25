@@ -10,7 +10,9 @@ import util.ExtractKeyword;
 import util.TransferHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Created by mac on 2017/7/16.
@@ -28,8 +30,17 @@ public class AnalysisServiceImpl implements AnalysisService{
     }
 
     @Override
-    public List<DocumentVO> recommendByKeywords(List<String> keywords) {
+    public List<DocumentVO> recommendByKeywords(String caseNumber,List<String> keywords) {
         List<DocumentPO> documentPOS = documentDao.getRecommendDocuments(keywords);
-        return TransferHelper.transToDocumentVOList(documentPOS);
+        Predicate<DocumentPO> predicate = (s) -> s.getCaseNumber().equals(caseNumber);
+        documentPOS.removeIf(predicate);
+        Collections.shuffle(documentPOS);
+
+        List<DocumentPO> result = new ArrayList<>();
+        for(int i=0;i<5;i++){
+            result.add(documentPOS.get(i));
+        }
+
+        return TransferHelper.transToDocumentVOList(result);
     }
 }

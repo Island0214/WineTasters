@@ -51,7 +51,7 @@ public class SearchController {
 
         List<String> keys = Arrays.asList((input.split(" ")));
 
-        List<DocumentVO> documentVOS = analysisService.recommendByKeywords(keys);
+        List<DocumentVO> documentVOS = analysisService.recommendByKeywords("",keys);
         if(documentVOS != null){
             map.put("input", input);
             map.put("success", "true");
@@ -97,7 +97,7 @@ public class SearchController {
 //        for (int i = 0; i < keywordList.size(); i++) {
 //            System.out.println("list:" + keywordList.get(i));
 //        }
-        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(keywordList);
+        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords("",keywordList);
         if(recomendDocumentVOS != null){
             for (int i = 0; i < recomendDocumentVOS.size(); i++) {
                 System.out.println("vo:" + recomendDocumentVOS.get(i).caseNumber);
