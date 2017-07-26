@@ -39,19 +39,17 @@ public class SearchController {
 
     @RequestMapping(value = "searchCase", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> searchFile(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> searchFile(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("data");
-        System.out.println(input);
 
-        List<String> keys = Arrays.asList((input.split(" ")));
+        List<String> keys = Arrays.asList(input.split(" "));
 
         List<DocumentVO> documentVOS = analysisService.recommendByKeywords("",keys);
         if(documentVOS != null){
             map.put("input", input);
             map.put("success", "true");
             map.put("content", documentVOS);
-            System.out.println(documentVOS.size());
         }else{
             map.put("success", "false");
             map.put("searchInfo", "无对应结果");
@@ -63,11 +61,9 @@ public class SearchController {
 
     @RequestMapping(value = "findCase", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> findCaseByID(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> findCaseByID(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String id = request.getParameter("id");
-        System.out.println("caseid:" + id);
-
 
         DocumentVO documentVOS = manageService.getDocumentByCaseNumber(id);
         if(documentVOS != null){
@@ -78,26 +74,19 @@ public class SearchController {
             map.put("searchInfo", "无对应结果");
         }
 
-//        ModelAndView modelAndView = new ModelAndView()
         return map;
     }
 
     @RequestMapping(value = "getSimilarCases", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String keywordsStr = request.getParameter("keywords");
         String caseNumber = request.getParameter("caseNumber");
         List<String> keywordList = Arrays.asList(keywordsStr.split("/"));
-//        for (int i = 0; i < keywordList.size(); i++) {
-//            System.out.println("list:" + keywordList.get(i));
-//        }
 
         List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(caseNumber,keywordList);
         if(recomendDocumentVOS != null){
-            for (int i = 0; i < recomendDocumentVOS.size(); i++) {
-                System.out.println("vo:" + recomendDocumentVOS.get(i).caseNumber);
-            }
             map.put("success", "true");
             map.put("content", recomendDocumentVOS);
         }else{
@@ -105,15 +94,13 @@ public class SearchController {
             map.put("searchInfo", "无对应结果");
         }
 
-//        ModelAndView modelAndView = new ModelAndView()
         return map;
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response){
+    public Map<String, Object> upload(HttpServletRequest request){
         Map<String, Object> map = new HashedMap();
-        System.out.println("upload");
 
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
@@ -123,7 +110,6 @@ public class SearchController {
         File file = fi.getStoreLocation();
         try {
             String up = manageService.uploadDocument(file);
-            System.out.println(up);
             if(up != null) {
                 map.put("success", "true");
                 map.put("caseID", up);
@@ -131,22 +117,7 @@ public class SearchController {
                 map.put("success", "false");
             }
         } catch (DocumentException e) {
-            System.out.println("分析XML文件失败");
-        }
-        try {
-            InputStream inputStream=multipartFile.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String tempString;
-            if((tempString = reader.readLine()) != null)
-                System.out.println(tempString);
-
-//// 一次读入一行，直到读入null为文件结束
-//            while ((tempString = reader.readLine()) != null) {
-//                System.out.println(tempString);
-////                fileList.add(tempString);
-//            }
-        } catch (IOException e2) {
-            System.out.println("读取XML文件失败");
+            map.put("error", "分析XML文件失败");
         }
         return map;
     }
@@ -163,12 +134,10 @@ public class SearchController {
 
     @RequestMapping(value = "getPageSizeOfSearchResult", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getPageSizeOfSearchResult(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getPageSizeOfSearchResult(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("input");
         int pageSize = manageService.getPageNumberByRex(input, 10);
-        System.out.println(input);
-        System.out.println(pageSize);
         map.put("success", "true");
         map.put("pageSize", pageSize);
         return map;
@@ -176,12 +145,10 @@ public class SearchController {
 
     @RequestMapping(value = "getSearchContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getSearchContent(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getSearchContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("input");
         int page = Integer.parseInt(request.getParameter("page"));
-        System.out.println(input);
-        System.out.println(page);
         List<DocumentVO> documentVOS = manageService.getDocumentsByRex(input, page,10);
 
         map.put("success", "true");
@@ -191,9 +158,7 @@ public class SearchController {
 
     @RequestMapping(value = "getPageContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getPageContent(HttpServletRequest request, HttpServletResponse response) {
-        JSONArray jsonArray = new JSONArray();
-
+    public Map<String, Object> getPageContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         int page = Integer.parseInt(request.getParameter("page"));
         List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("刑事案件", page,10);
@@ -215,25 +180,21 @@ public class SearchController {
 
     @RequestMapping(value = "getTypeSize", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getTypeSize(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getTypeSize(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String type = request.getParameter("type");
-        System.out.println(type);
         int pageSize = manageService.getPageNumberByReason(type, 10);
         map.put("success", "true");
         map.put("pageSize", pageSize);
-        System.out.println(pageSize);
         return map;
     }
 
     @RequestMapping(value = "getTypeContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getTypeContent(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getTypeContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String reason = request.getParameter("reason");
         int page = Integer.parseInt(request.getParameter("page"));
-        System.out.println(reason);
-        System.out.println(page);
         List<DocumentVO> documentVOS = manageService.getDocumentsByReason(reason, page,10);
 
         map.put("success", "true");
