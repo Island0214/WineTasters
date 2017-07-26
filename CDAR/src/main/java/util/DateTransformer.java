@@ -10,13 +10,13 @@ import java.util.Date;
  */
 public class DateTransformer {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-
     public static Date stringToDate(String str) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
         return sdf.parse(str.replace("null","1").replace("\t","1"));
     }
 
     public static String dateToString(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
         return sdf.format(date);
     }
 }
