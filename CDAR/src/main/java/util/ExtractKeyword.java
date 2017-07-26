@@ -37,7 +37,7 @@ public class ExtractKeyword {
                     JcsegTaskConfig.COMPLEX_MODE,
                     tokenizerConfig, dic);
         } catch (JcsegException e) {
-            e.printStackTrace();
+            System.out.println("提取关键词失败");
         }
         //create and initialize the extractor
         TextRankKeywordsExtractor keywordsExtractor = new TextRankKeywordsExtractor(tokenizerSeg);
@@ -49,7 +49,7 @@ public class ExtractKeyword {
         try {
             temp = keywordsExtractor.getKeywordsFromString(str);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("不知道为啥提取关键词时抛出IO异常");
         }
 
         if (temp != null) {

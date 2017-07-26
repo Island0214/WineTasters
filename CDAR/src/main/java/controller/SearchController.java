@@ -129,19 +129,19 @@ public class SearchController {
         try {
             String up = manageService.uploadDocument(file);
             System.out.println(up);
-            if(up != null){
+            if(up != null) {
                 map.put("success", "true");
                 map.put("caseID", up);
             }else{
                 map.put("success", "false");
             }
-        }catch (DocumentException e){
-            e.printStackTrace();
+        } catch (DocumentException e) {
+            System.out.println("分析XML文件失败");
         }
         try {
             InputStream inputStream=multipartFile.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String tempString = null;
+            String tempString;
             if((tempString = reader.readLine()) != null)
                 System.out.println(tempString);
 
@@ -151,7 +151,7 @@ public class SearchController {
 ////                fileList.add(tempString);
 //            }
         } catch (IOException e2) {
-            e2.printStackTrace();
+            System.out.println("读取XML文件失败");
         }
         return map;
     }

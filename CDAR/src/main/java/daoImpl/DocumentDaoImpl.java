@@ -45,10 +45,9 @@ public class DocumentDaoImpl implements DocumentDao{
             session.getTransaction().commit();
             session.close();
             return true;
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
     @Override
