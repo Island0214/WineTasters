@@ -39,7 +39,7 @@ public class SearchController {
 
     @RequestMapping(value = "searchCase", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> searchFile(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> searchFile(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("data");
 
@@ -61,7 +61,7 @@ public class SearchController {
 
     @RequestMapping(value = "findCase", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> findCaseByID(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> findCaseByID(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String id = request.getParameter("id");
 
@@ -79,7 +79,7 @@ public class SearchController {
 
     @RequestMapping(value = "getSimilarCases", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getSimilarCasesByKeywords(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String keywordsStr = request.getParameter("keywords");
         String caseNumber = request.getParameter("caseNumber");
@@ -99,7 +99,7 @@ public class SearchController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> upload(HttpServletRequest request, HttpServletResponse response){
+    public Map<String, Object> upload(HttpServletRequest request){
         Map<String, Object> map = new HashedMap();
 
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -134,7 +134,7 @@ public class SearchController {
 
     @RequestMapping(value = "getPageSizeOfSearchResult", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getPageSizeOfSearchResult(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getPageSizeOfSearchResult(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("input");
         int pageSize = manageService.getPageNumberByRex(input, 10);
@@ -145,7 +145,7 @@ public class SearchController {
 
     @RequestMapping(value = "getSearchContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getSearchContent(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getSearchContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("input");
         int page = Integer.parseInt(request.getParameter("page"));
@@ -158,9 +158,7 @@ public class SearchController {
 
     @RequestMapping(value = "getPageContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getPageContent(HttpServletRequest request, HttpServletResponse response) {
-        JSONArray jsonArray = new JSONArray();
-
+    public Map<String, Object> getPageContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         int page = Integer.parseInt(request.getParameter("page"));
         List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("刑事案件", page,10);
@@ -182,7 +180,7 @@ public class SearchController {
 
     @RequestMapping(value = "getTypeSize", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getTypeSize(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getTypeSize(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String type = request.getParameter("type");
         int pageSize = manageService.getPageNumberByReason(type, 10);
@@ -193,7 +191,7 @@ public class SearchController {
 
     @RequestMapping(value = "getTypeContent", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getTypeContent(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> getTypeContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         String reason = request.getParameter("reason");
         int page = Integer.parseInt(request.getParameter("page"));

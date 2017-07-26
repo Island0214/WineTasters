@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> login(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
 
         String password = request.getParameter("password");
@@ -52,7 +52,7 @@ public class UserController {
 
     @RequestMapping(value = "userSignUp", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> signUp(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> signUp(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
         String result = "";
         String signinInfo = "";
