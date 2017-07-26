@@ -32,8 +32,6 @@ public class UserController {
         String username = request.getParameter("username");
         String loginInfo = "";
         String result = "";
-        System.out.println(username);
-        System.out.println(password);
         UserVO userVO = new UserVO();
         userVO.setAccount(username);
         userVO.setPassword(password);
@@ -61,8 +59,6 @@ public class UserController {
 
         String password = request.getParameter("password");
         String username = request.getParameter("username");
-        System.out.println(username);
-        System.out.println(password);
 
         UserVO userVO = new UserVO();
         userVO.setAccount(username);
