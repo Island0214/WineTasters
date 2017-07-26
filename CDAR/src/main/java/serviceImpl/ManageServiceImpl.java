@@ -12,7 +12,6 @@ import util.TransferHelper;
 import util.XMLAnalyse;
 
 import java.io.File;
-import java.text.ParseException;
 import java.util.List;
 
 /**

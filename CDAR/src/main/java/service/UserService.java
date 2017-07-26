@@ -1,6 +1,5 @@
 package service;
 
-import entityPO.UserPO;
 import entityVO.UserVO;
 
 /**

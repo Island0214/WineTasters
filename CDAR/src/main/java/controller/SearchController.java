@@ -2,33 +2,28 @@ package controller;
 
 import entityVO.DocumentVO;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import org.apache.commons.collections.map.AbstractMapDecorator;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.ModelAndView;
 import service.AnalysisService;
 import service.ManageService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.*;
-
-//import static sun.plugin2.util.PojoUtil.toJson;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by island on 2017/7/16.

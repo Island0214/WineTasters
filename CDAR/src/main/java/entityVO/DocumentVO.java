@@ -1,11 +1,5 @@
 package entityVO;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import entityPO.DocumentPO;
-
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by mac on 2017/7/16.
  */
