@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
         Query q = session.createQuery("select password from UserPO where account = :account");
         q.setParameter("account",userPO.getAccount());
-        if(q.getResultList().size() == 0)
+        if(q.getResultList().isEmpty())
             return false;
 
         String password = (String) q.getSingleResult();
