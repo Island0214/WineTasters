@@ -1,7 +1,6 @@
 package controller;
 
 import entityVO.DocumentVO;
-import net.sf.json.JSONArray;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.dom4j.DocumentException;
@@ -19,7 +18,6 @@ import service.AnalysisService;
 import service.ManageService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
@@ -45,12 +43,12 @@ public class SearchController {
 
         List<String> keys = Arrays.asList(input.split(" "));
 
-        List<DocumentVO> documentVOS = analysisService.recommendByKeywords("",keys);
-        if(documentVOS != null){
+        List<DocumentVO> documentVOS = analysisService.recommendByKeywords("", keys);
+        if (documentVOS != null) {
             map.put("input", input);
             map.put("success", "true");
             map.put("content", documentVOS);
-        }else{
+        } else {
             map.put("success", "false");
             map.put("searchInfo", "无对应结果");
         }
@@ -66,10 +64,10 @@ public class SearchController {
         String id = request.getParameter("id");
 
         DocumentVO documentVOS = manageService.getDocumentByCaseNumber(id);
-        if(documentVOS != null){
+        if (documentVOS != null) {
             map.put("success", "true");
             map.put("content", documentVOS);
-        }else{
+        } else {
             map.put("success", "false");
             map.put("searchInfo", "无对应结果");
         }
@@ -85,11 +83,11 @@ public class SearchController {
         String caseNumber = request.getParameter("caseNumber");
         List<String> keywordList = Arrays.asList(keywordsStr.split("/"));
 
-        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(caseNumber,keywordList);
-        if(recomendDocumentVOS != null){
+        List<DocumentVO> recomendDocumentVOS = analysisService.recommendByKeywords(caseNumber, keywordList);
+        if (recomendDocumentVOS != null) {
             map.put("success", "true");
             map.put("content", recomendDocumentVOS);
-        }else{
+        } else {
             map.put("success", "false");
             map.put("searchInfo", "无对应结果");
         }
@@ -99,21 +97,37 @@ public class SearchController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> upload(HttpServletRequest request){
+    public Map<String, Object> upload(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
 
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
         MultipartFile multipartFile = multipartRequest.getFile("file");
-        CommonsMultipartFile cf= (CommonsMultipartFile)multipartFile; //这个myfile是MultipartFile的
-        DiskFileItem fi = (DiskFileItem)cf.getFileItem();
+        CommonsMultipartFile cf = (CommonsMultipartFile) multipartFile; //这个myfile是MultipartFile的
+        DiskFileItem fi = (DiskFileItem) cf.getFileItem();
         File file = fi.getStoreLocation();
+
+//        try {
+//            InputStream inputStream = multipartFile.getInputStream();
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+//            String tempString;
+//            if ((tempString = reader.readLine()) != null)
+//                System.out.println(tempString);
+//
+//// 一次读入一行，直到读入null为文件结束
+//            while ((tempString = reader.readLine()) != null) {
+//                System.out.println(tempString);
+////                fileList.add(tempString);
+//            }
+//        } catch (IOException e2) {
+//            System.out.println("读取XML文件失败");
+//        }
         try {
             String up = manageService.uploadDocument(file);
-            if(up != null) {
+            if (up != null) {
                 map.put("success", "true");
                 map.put("caseID", up);
-            }else{
+            } else {
                 map.put("success", "false");
             }
         } catch (DocumentException e) {
@@ -149,7 +163,7 @@ public class SearchController {
         Map<String, Object> map = new HashedMap();
         String input = request.getParameter("input");
         int page = Integer.parseInt(request.getParameter("page"));
-        List<DocumentVO> documentVOS = manageService.getDocumentsByRex(input, page,10);
+        List<DocumentVO> documentVOS = manageService.getDocumentsByRex(input, page, 10);
 
         map.put("success", "true");
         map.put("content", documentVOS);
@@ -161,7 +175,7 @@ public class SearchController {
     public Map<String, Object> getPageContent(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
         int page = Integer.parseInt(request.getParameter("page"));
-        List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("刑事案件", page,10);
+        List<DocumentVO> documentVOS = manageService.getDocumentsByCategory("刑事案件", page, 10);
 
         map.put("success", "true");
         map.put("content", documentVOS);
@@ -195,7 +209,7 @@ public class SearchController {
         Map<String, Object> map = new HashedMap();
         String reason = request.getParameter("reason");
         int page = Integer.parseInt(request.getParameter("page"));
-        List<DocumentVO> documentVOS = manageService.getDocumentsByReason(reason, page,10);
+        List<DocumentVO> documentVOS = manageService.getDocumentsByReason(reason, page, 10);
 
         map.put("success", "true");
         map.put("content", documentVOS);

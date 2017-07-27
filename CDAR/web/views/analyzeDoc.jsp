@@ -17,7 +17,8 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--// bootstrap-css -->
     <!-- css -->
-    <link rel="stylesheet" href="../css/alert.css.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/amazeui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/searchForm2.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all" />
@@ -54,6 +55,14 @@
     <![endif]-->
 </head>
 <body style="background: url(../images/bg_1.jpg) no-repeat fixed; background-size: 100%">
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading" style="display: none">
+    <div class="am-modal-dialog" style="background-color: rgba(213, 213, 213, 0.74);">
+        <div class="am-modal-hd" style="color: rgb(169, 212, 255);">正在加载...</div>
+        <div class="am-modal-bd" style="color: rgb(169, 212, 255);">
+            <span class="am-icon-spinner am-icon-spin"></span>
+        </div>
+    </div>
+</div>
 <!-- banner -->
 <div class="banner">
     <div class="header">
@@ -357,6 +366,7 @@
     </div>
 </div>
 <!-- //copyright -->
+<script type="text/javascript" src="../js/amazeui.js"></script>
 <script type="text/javascript" src="../js/alert.js"></script>
 <script src="../js/SmoothScroll.min.js"></script>
 <script type="text/javascript" src="../js/move-top.js"></script>

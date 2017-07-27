@@ -20,6 +20,7 @@ public class DocumentVO {
      * endDate：裁判日期
      * litigant:诉讼参与人，原告被告
      * originDocument:裁判书原文
+     * publicProsecution:公诉方
      */
 
     public Integer id;
@@ -48,7 +49,8 @@ public class DocumentVO {
     public String originDocument;
     //裁判书原文
     public String keywords;
-
+    //公诉方
+    public String publicProsecution;
 
     /**
      * @param id 案件id
@@ -66,7 +68,7 @@ public class DocumentVO {
      */
     public DocumentVO(Integer id, String title, String caseNumber, String court, String endDate,
                       String judgeReason, String property, String evidence, String process,
-                      String reason, String litigant, String originDocument, String keywords) {
+                      String reason, String litigant, String originDocument, String keywords, String publicProsecution) {
         this.id = id;
         this.title = title;
         this.caseNumber = caseNumber;
@@ -78,8 +80,9 @@ public class DocumentVO {
         this.process = process;
         this.reason = reason;
         this.litigant = litigant;
-        this.originDocument = originDocument;
+        this.originDocument = originDocument.replaceAll("\n","<br>");
         this.keywords = keywords;
+        this.publicProsecution = publicProsecution;
     }
 }
 

@@ -30,7 +30,7 @@ public class TransferHelper {
 
         return new DocumentVO(documentPO.getId(), documentPO.getCaseNumber(), documentPO.getCaseNumber(), documentPO.getCourt(),
                 DateTransformer.dateToString(documentPO.getEndDate()), documentPO.getJudgeReason(), documentPO.getProperty(), documentPO.getEvidence(),
-                documentPO.getProcess(), documentPO.getReason(), documentPO.getLitigant(), documentPO.getOriginDocument(), documentPO.getKeywords());
+                documentPO.getProcess(), documentPO.getReason(), documentPO.getLitigant(), documentPO.getOriginDocument(), documentPO.getKeywords(),documentPO.getPublicProsecution());
     }
 
 
