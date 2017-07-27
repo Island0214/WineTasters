@@ -285,9 +285,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="sort_buttons">
                         <!--<div class="date_button">裁判日期</div>-->
                         <p>
-                        <div class="a_demo_one">
-                            裁判日期 ↓
-                        </div>
+                        <%--<div class="a_demo_one">--%>
+                            <%--裁判日期 ↓--%>
+                        <%--</div>--%>
                         </p>
                     </div>
                     <div class="case_item">
@@ -412,7 +412,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="civilCase.jsp">民事案件</a></li>
+                    <li><a href="civilCase.jsp">刑事案件</a></li>
                     <li><a href="analyzeDoc.jsp">查询类案</a></li>
                     <li><a href="#">Icons</a></li>
                 </ul>
