@@ -1,6 +1,10 @@
 /**
  * Created by island on 2017/7/17.
  */
+var pathName = document.location.pathname;
+var index = pathName.substr(1).indexOf("/");
+var result = pathName.substr(0,index+1);
+
 function log() {
     var username = $('#logInUsername').val();
     var password = $('#logInPassword').val();
@@ -10,9 +14,8 @@ function log() {
         alert("请输入完整信息");
         return;
     }
-
     $.ajax({
-        url: "/userAction/userLogin",
+        url: "/CDAR/userAction/userLogin",
         type: "POST",
         dataType: "json",
         data: {
@@ -60,7 +63,7 @@ function signIn() {
     }
 
     $.ajax({
-        url: "/userAction/userSignUp",
+        url: "/CDAR/userAction/userSignUp",
         type: "POST",
         dataType: "json",
         data: {

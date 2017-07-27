@@ -1,3 +1,6 @@
+var pathName = document.location.pathname;
+var index = pathName.substr(1).indexOf("/");
+var result = pathName.substr(0,index+1);
 var keywordsStr = null;
 var caseNumber = null;
 var similarCases = document.getElementById("similarCases");
@@ -134,7 +137,7 @@ function up() {
 function findCase(id) {
     $('#my-modal-loading').modal();
     $.ajax({
-        url: "/manageAction/findCase",
+        url: "/CDAR/manageAction/findCase",
         type: "POST",
         dataType: "json",
         data: {
@@ -206,7 +209,7 @@ function findCase(id) {
 function getSimilarCases(keywordsStr, caseNumber) {
     $('#my-modal-loading').modal();
     $.ajax({
-        url: "/manageAction/getSimilarCases",
+        url: "/CDAR/manageAction/getSimilarCases",
         type: "POST",
         dataType: "json",
         data: {

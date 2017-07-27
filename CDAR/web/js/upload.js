@@ -12,7 +12,7 @@ function upload() {
     alert(ul.text().split("<")[0]);
 
     $.ajaxFileUpload({
-        url: '/manageAction/upload',
+        url: '/CDAR/manageAction/upload',
         secureuri: false,
         fileElementId: 'file',
         dataType: 'json',

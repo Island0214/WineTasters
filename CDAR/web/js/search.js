@@ -61,7 +61,7 @@ function search() {
 function getPageSizeOfSearchResult(input) {
     jQuery.ajax({
         type: 'POST',
-        url: '/manageAction/getPageSizeOfSearchResult',
+        url: '/CDAR/manageAction/getPageSizeOfSearchResult',
         data: {"input": input},
         dataType: 'json',
         success: function (data) {
@@ -86,7 +86,7 @@ function getPageSizeOfSearchResult(input) {
 function getPageOfSearchResult(input, page) {
     clearCaseList();
     $.ajax({
-        url: "/manageAction/getSearchContent",
+        url: "/CDAR/manageAction/getSearchContent",
         type: "POST",
         dataType: "json",
         data: {
@@ -117,7 +117,7 @@ function getPageSize() {
     jQuery.ajax({
         type: 'GET',
         contentType: 'application/json',
-        url: '/manageAction/getPageSize',
+        url: '/CDAR/manageAction/getPageSize',
         dataType: 'json',
         success: function (data) {
             if (data && data.success == "true") {
@@ -151,7 +151,7 @@ function clearCaseList() {
 function getCaseOfEachPage(pageNum) {
     clearCaseList();
     $.ajax({
-        url: "/manageAction/getPageContent",
+        url: "/CDAR/manageAction/getPageContent",
         type: "POST",
         dataType: "json",
         data: {"page": pageNum},
@@ -178,7 +178,7 @@ function getReasonTypes() {
     jQuery.ajax({
         type: 'GET',
         contentType: 'application/json',
-        url: '/manageAction/getReasonType',
+        url: '/CDAR/manageAction/getReasonType',
         dataType: 'json',
         success: function (data) {
             if (data && data.success == "true") {
@@ -256,7 +256,7 @@ function addCaseItem(item) {
 function getTypeSize(type) {
     getTypePage(type, 1);
     jQuery.ajax({
-        url: '/manageAction/getTypeSize',
+        url: '/CDAR/manageAction/getTypeSize',
         type: "POST",
         dataType: "json",
         data: {"type": type},
@@ -285,7 +285,7 @@ function getTypePage(type, page) {
     // alert(page);
     clearCaseList();
     $.ajax({
-        url: "/manageAction/getTypeContent",
+        url: "/CDAR/manageAction/getTypeContent",
         type: "POST",
         dataType: "json",
         data: {
