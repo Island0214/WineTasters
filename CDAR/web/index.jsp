@@ -111,7 +111,7 @@
                             <li><a href="views/civilCase.jsp">刑事案件</a></li>
                             <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
-                                <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
+                                <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">关于（暂无）
                                     <!-- <b class="caret"></b> -->
                                 </a>
                                 <!-- <ul class="dropdown-menu">
@@ -119,7 +119,7 @@
                                     <li><a href="#">Short Codes</a></li>
                                 </ul> -->
                             </li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">联系（暂无）</a></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -237,7 +237,7 @@
                 <ul>
                     <li><a href="views/civilCase.jsp">民事案件</a></li>
                     <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
-                    <li><a href="#">Icons</a></li>
+                    <%--<li><a href="#">Icons</a></li>--%>
                 </ul>
             </div>
             <div class="col-md-3 w3ls-footer-grid">
