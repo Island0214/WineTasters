@@ -242,6 +242,8 @@ function addCaseItem(item) {
 
     var reason = document.createElement("h5");
     reason.appendChild(document.createTextNode("【裁判理由】"));
+    if(item.judgeReason != null)
+        reason.appendChild(document.createTextNode(item.judgeReason));
     case_item.appendChild(reason);
 
     var judge_reason = document.createElement("p");

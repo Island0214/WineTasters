@@ -20,6 +20,7 @@ public class DocumentVO {
      * endDate：裁判日期
      * litigant:诉讼参与人，原告被告
      * originDocument:裁判书原文
+     * publicProsecution:公诉方
      */
 
     public Integer id;
@@ -49,7 +50,7 @@ public class DocumentVO {
     //裁判书原文
     public String keywords;
     //公诉方
-    private String publicProsecution;
+    public String publicProsecution;
 
     /**
      * @param id 案件id

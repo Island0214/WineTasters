@@ -51,7 +51,6 @@
 //            alert(id);
             findCase(id);
 
-
         });
     </script>
     <!--[if lt IE 9]>
@@ -232,7 +231,7 @@
                     <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 size=3">
                     <div>审理法院： <span id="courtName">中华人民共和国最高人民法院</span></div>
                     <div>案件类型： <span id="property">民事案件</span></div>
-                    <div>案由： <span id="reason">提供劳务者受害责任纠纷</span> </div>
+                    <div>公诉方： <span id="publicProsecution">提供劳务者受害责任纠纷</span> </div>
                     <div>审理程序: <span id="process">一审案件</span></div>
                     <div>裁判日期: <span id="endDate">2017-03-17</span></div>
                     <div>当事人： <span id="litigant">冯某某、郭某某</span></div>
