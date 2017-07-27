@@ -208,7 +208,7 @@
                 <div class="agile-post-grids">
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
-                            <a href="single.html">
+                            <a href="javascript:volid(0);">
                                 <img src="../images/img1.jpg" alt=""/>
                             </a>
                         </div>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
-                            <a href="single.html">
+                            <a href="javascript:volid(0);" disabled="true">
                                 <img src="../images/img2.jpg" alt=""/>
                             </a>
                         </div>
