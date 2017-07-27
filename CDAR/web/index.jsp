@@ -19,25 +19,25 @@
         window.scrollTo(0, 1);
     } </script>
     <!-- bootstrap-css -->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--// bootstrap-css -->
     <!-- css -->
-    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/user.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/alert.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/searchForm.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/signin_out.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/user.css" type="text/css" media="all"/>
     <!--// css -->
     <!-- font-awesome icons -->
-    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
           rel="stylesheet">
     <!-- //font -->
-    <script src="../js/jquery-1.11.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
@@ -59,10 +59,10 @@
 <div class="banner">
     <div class="header">
         <div id="preLog" class="sign_in_logo">
-            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px"
+            <a href="#log" title="登录" onclick="showLoginView()"><img src="images/login.png" alt="" width="25px"
                                                                      height="25px"></a>
             |
-            <a href="#sign" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px"
+            <a href="#sign" title="注册" onclick="showSigninView()"><img src="images/signup.png" alt="" width="25px"
                                                                        height="25px"></a>
         </div>
         <div id="afterLog" class="sign_in_logo" style="display: none">
@@ -209,7 +209,7 @@
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
                             <a href="javascript:volid(0);">
-                                <img src="../images/img1.jpg" alt=""/>
+                                <img src="images/img1.jpg" alt=""/>
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
@@ -221,7 +221,7 @@
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
                             <a href="javascript:volid(0);" disabled="true">
-                                <img src="../images/img2.jpg" alt=""/>
+                                <img src="images/img2.jpg" alt=""/>
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
@@ -262,15 +262,15 @@
     </div>
 </div>
 <!-- //copyright -->
-<script type="text/javascript" src="../js/alert.js"></script>
-<script src="../js/responsiveslides.min.js"></script>
-<script src="../js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="../js/move-top.js"></script>
-<script type="text/javascript" src="../js/easing.js"></script>
-<script type="text/javascript" src="../js/user.js"></script>
-<script type="text/javascript" src="../js/search.js"></script>
-<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
-<script type="text/javascript" src="../js/cookie.js"></script>
+<script type="text/javascript" src="js/alert.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function () {
