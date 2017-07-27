@@ -162,10 +162,9 @@ function findCase(id) {
                 if (data.content.originDocument != null) {
                     var content = data.content.originDocument;
 
-                    var text = "";
+                    var text = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                     $.each(content.split("<br>"), function (i, item) {
-                        text = text + item;
-                        text = text + "<br/>";
+                        text = text + item + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" ;
                     });
                     $('.origin_document').html(text);
                 }
