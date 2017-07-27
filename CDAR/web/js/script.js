@@ -25,6 +25,7 @@ function up() {
         // This function is called when a file is added to the queue;
         // either via the browse button, or via drag/drop:
         add: function (e, data) {
+            $('#my-modal-loading').modal();
             var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"' +
                 ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><span></span></li>');
 
@@ -61,8 +62,9 @@ function up() {
 
             // alert(data);
             data.submit().success(function (data) {
+                $('#my-modal-loading').modal('close');
                 if (data.success == "true") {
-                    success_alert("上床成功");
+                    success_alert("上传成功");
                     $('#resultPage').css("display", "block");
                     findCase(data.caseID);
 
@@ -96,6 +98,8 @@ function up() {
         },
 
         fail: function (e, data) {
+            $('#my-modal-loading').modal('close');
+            fail_alert("上传失败");
             // Something has gone wrong!
             data.context.addClass('error');
         }
@@ -128,6 +132,7 @@ function up() {
 }
 
 function findCase(id) {
+    $('#my-modal-loading').modal();
     $.ajax({
         url: "/manageAction/findCase",
         type: "POST",
@@ -186,8 +191,11 @@ function findCase(id) {
                 }
 
             }
+            $('#my-modal-loading').modal('close');
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#my-modal-loading').modal('close');
             fail_alert("上传失败");
             // alert(XMLHttpRequest.status);
             // alert(XMLHttpRequest.readyState);
@@ -197,6 +205,7 @@ function findCase(id) {
 }
 
 function getSimilarCases(keywordsStr, caseNumber) {
+    $('#my-modal-loading').modal();
     $.ajax({
         url: "/manageAction/getSimilarCases",
         type: "POST",
@@ -217,8 +226,10 @@ function getSimilarCases(keywordsStr, caseNumber) {
                 link.href = "/views/docDetail.jsp?id=" + caseNum;
                 similarCases.appendChild(link);
             });
+            $('#my-modal-loading').modal('close');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#my-modal-loading').modal('close');
             fail_alert("上传失败");
             // alert(XMLHttpRequest.status);
             // alert(XMLHttpRequest.readyState);
