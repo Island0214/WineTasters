@@ -225,7 +225,7 @@ function getSimilarCases(keywordsStr, caseNumber) {
                 link.appendChild(document.createTextNode(item.title));
                 link.target = "_blank";
                 var caseNum = (encodeURIComponent(item.caseNumber));
-                link.href = "/views/docDetail.jsp?id=" + caseNum;
+                link.href = "/CDAR/views/docDetail.jsp?id=" + caseNum;
                 similarCases.appendChild(link);
             });
             $('#my-modal-loading').modal('close');

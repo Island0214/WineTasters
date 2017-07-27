@@ -191,7 +191,7 @@
 
             <!--上传XML文件-->
             <div class="upload effect">
-                <form id="upload" method="post" action="/manageAction/upload" enctype="multipart/form-data">
+                <form id="upload" method="post" action="/CDAR/manageAction/upload" enctype="multipart/form-data">
                     <div id="drop">
                         <a>上传文件</a>
                         <input type="file" id="file" name="file" value="选择文件"/>

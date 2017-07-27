@@ -218,7 +218,7 @@ function addCaseItem(item) {
     title_p.className = "title";
     title_a.target = "_blank";
     id = (encodeURIComponent(item.caseNumber));
-    title_a.href = "/views/docDetail.jsp?id=" + id;
+    title_a.href = "/CDAR/views/docDetail.jsp?id=" + id;
     title_a.appendChild(title_p);
     case_item.appendChild(title_a);
 
