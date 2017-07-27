@@ -32,7 +32,7 @@ public class ManageServiceImpl implements ManageService {
     public String uploadDocument(File file) throws DocumentException {
         DocumentPO documentPO = XMLAnalyse.readXMLFile(file);
         if(documentDao.getDocumentByCaseNumber(documentPO.getCaseNumber())==null){
-            documentPO.setKeywords(new ExtractKeyword().extractKeyword(documentPO.getOriginDocument()));
+            documentPO.setKeywords(new ExtractKeyword().extractKeyword(documentPO.getOriginDocument(),documentPO.getLitigant().split("、")));
             documentDao.saveDocument(documentPO);
             return documentPO.getCaseNumber();
         }

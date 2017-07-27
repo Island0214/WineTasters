@@ -22,12 +22,6 @@ public class AnalysisServiceImpl implements AnalysisService{
 
     @Autowired
     private DocumentDao documentDao;
-    
-    @Override
-    public String analyseKeyWords(String text) {
-        ExtractKeyword extractKeyword = new ExtractKeyword();
-        return extractKeyword.extractKeyword(text);
-    }
 
     @Override
     public List<DocumentVO> recommendByKeywords(String caseNumber,List<String> keywords) {

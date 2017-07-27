@@ -36,7 +36,7 @@ public class XMLAnalyse {
         documentPO = new DocumentPO();
         OriginPart originPart = new OriginPart();
         listNodes(root, documentPO,originPart);
-//        System.out.println(x++);
+        System.out.println(x++);
         return documentPO;
     }
 
@@ -213,11 +213,11 @@ public class XMLAnalyse {
             for (File file : files) {
                 DocumentPO po = XMLAnalyse.readXMLFile(file);
                 po.setProperty("刑事案件");
-                po.setKeywords(extractKeyword.extractKeyword(po.getOriginDocument()));
-                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
-                    documentDao.saveDocument(po);
-                }
-//                System.out.println(po);
+                po.setKeywords(extractKeyword.extractKeyword(po.getOriginDocument(),po.getLitigant().split("、")));
+//                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
+//                    documentDao.saveDocument(po);
+//                }
+                System.out.println(po);
             }
         }
     }
