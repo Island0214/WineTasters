@@ -13,8 +13,6 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by qianzhihao on 2017/7/16.
@@ -36,16 +34,29 @@ public class XMLAnalyse {
         Document document = reader.read(file);
         Element root = document.getRootElement();
         documentPO = new DocumentPO();
-        listNodes(root, documentPO);
+        OriginPart originPart = new OriginPart();
+        listNodes(root, documentPO,originPart);
 //        System.out.println(x++);
         return documentPO;
     }
 
     //遍历当前节点下的所有节点
-    private static void listNodes(Element node, DocumentPO documentPO){
+    private static void listNodes(Element node, DocumentPO documentPO,OriginPart originPart){
         //全文
-        if (node.getName().equals("QW")) {
-            documentPO.setOriginDocument(node.attributeValue("value"));
+        if (node.getName().equals("DSR")) {
+            originPart.dsr = node.attributeValue("value")+'\n';
+        }else if (node.getName().equals("AJJBQK")) {
+            originPart.ajjbqk = node.attributeValue("value")+'\n';
+        }else if (node.getName().equals("CPFXGC")) {
+            originPart.cpfxgc = node.attributeValue("value")+'\n';
+        }else if (node.getName().equals("PJJG")) {
+            originPart.pjjg = node.attributeValue("value")+'\n';
+            documentPO.setJudgeReason(originPart.cpfxgc+originPart.pjjg);
+        }else if (node.getName().equals("WW")) {
+            originPart.ww = node.attributeValue("value");
+            documentPO.setOriginDocument(originPart.origin());
+        }else if (node.getName().equals("SSJL")) {
+            originPart.ssjl = node.attributeValue("value")+'\n';
         }
         //经办法院
         else if (node.getName().equals("JBFY")) {
@@ -79,75 +90,101 @@ public class XMLAnalyse {
 //                e.printStackTrace();
             }
         }
-        //当事人
-        else if (node.getName().equals("SSCYR")) {
+        //公诉机关
+        else if (node.getName().equals("GSF")){
             List<Element> childs = node.elements();
-            String name = null;
-            String res = documentPO.getLitigant();
             for (Element child : childs) {
-                if (child.getName().equals("SSCYRMC")) {
-                    name = child.attributeValue("value");
+                if (child.getName().equals("SSCYR")) {
+                    documentPO.setPublicProsecution(child.attributeValue("value"));
                 }
-                if (child.getName().equals("SSSF") && (child.attributeValue("value").equals("原告") ||child.attributeValue("value").equals("原告人") ||child.attributeValue("value").equals("被告") || child.attributeValue("value").equals("被告人"))) {
-                    if (res == null) {
-                        res = name;
-                    } else {
-                        res += "、" + name;
-                    }
-                    documentPO.setLitigant(res);
-                    break;
-                }
+                break;
             }
-            return;
         }
-        else if(node.getName().equals("SSJL")&&documentPO.getLitigant()==null){
-            String res = "";
-            //诉讼记录
-            String ssjl = node.attributeValue("value");
-            Pattern p = Pattern.compile("(?<=被告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
-            Matcher m = p.matcher(ssjl);
-            if(m.find()){
-                res+=m.group();
+        //当事人
+//        else if (node.getName().equals("SSCYR")) {
+//            List<Element> childs = node.elements();
+//            String name = null;
+//            String res = documentPO.getLitigant();
+//            for (Element child : childs) {
+//                if (child.getName().equals("SSCYRMC")) {
+//                    name = child.attributeValue("value");
+//                }
+//                if (child.getName().equals("SSSF") && (child.attributeValue("value").equals("原告") ||child.attributeValue("value").equals("原告人") ||child.attributeValue("value").equals("被告") || child.attributeValue("value").equals("被告人"))) {
+//                    if (res == null) {
+//                        res = name;
+//                    } else {
+//                        res += "、" + name;
+//                    }
+//                    documentPO.setLitigant(res);
+//                    break;
+//                }
+//            }
+//            return;
+//        }
+//        else if(node.getName().equals("SSJL")&&documentPO.getLitigant()==null){
+//            String res = "";
+//            //诉讼记录
+//            String ssjl = node.attributeValue("value");
+//            Pattern p = Pattern.compile("(?<=被告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
+//            Matcher m = p.matcher(ssjl);
+//            if(m.find()){
+//                res+=m.group();
+//            }
+//            p = Pattern.compile("(?<=原告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
+//            m = p.matcher(ssjl);
+//            if(m.find()){
+//                res+="、";
+//                res+=m.group();
+//            }
+//
+//            documentPO.setLitigant(res);
+//        }
+        else if (node.getName().equals("QSF")||node.getName().equals("YSF")){
+            List<Element> childs = node.elements();
+            for (Element child : childs) {
+                if (child.getName().equals("SSCYR")) {
+                    if(documentPO.getLitigant()==null){
+                        documentPO.setLitigant(child.attributeValue("value"));
+                    }else {
+                        String res = documentPO.getLitigant();
+                        res+="、"+child.attributeValue("value");
+                        documentPO.setLitigant(res);
+                    }
+                }
+                break;
             }
-            p = Pattern.compile("(?<=原告人)(.*?)(?=，|、|犯|提起|不服|诉告)");
-            m = p.matcher(ssjl);
-            if(m.find()){
-                res+="、";
-                res+=m.group();
-            }
-
-            documentPO.setLitigant(res);
         }
         //案件基本情况
         else if (node.getName().equals("AJJBQK")) {
             documentPO.setSituation(node.attributeValue("value"));
         }
         //依据
-        else if (node.getName().equals("FLFTMC")) {
-            if (documentPO.getEvidence() == null) {
-                documentPO.setEvidence(node.attributeValue("value") + "：");
-            } else {
-                String res = documentPO.getEvidence() + "/";
-                res += (node.attributeValue("value") + "：");
-                documentPO.setEvidence(res);
-            }
-        } else if (node.getName().equals("TM")) {
-            String res = documentPO.getEvidence();
-            //若不是第一个，加上顿号
-            if (!documentPO.getEvidence().endsWith("：")) {
-                res += "、";
-            }
-            res += node.attributeValue("value") + "条";
-            documentPO.setEvidence(res);
-        } else if (node.getName().equals("KM")) {
-            String res = documentPO.getEvidence();
-            res += node.attributeValue("value");
-            documentPO.setEvidence(res);
-        } else if (node.getName().equals("CPFXGC")){
+//        else if (node.getName().equals("FLFTMC")) {
+//            if (documentPO.getEvidence() == null) {
+//                documentPO.setEvidence(node.attributeValue("value") + "：");
+//            } else {
+//                String res = documentPO.getEvidence() + "/";
+//                res += (node.attributeValue("value") + "：");
+//                documentPO.setEvidence(res);
+//            }
+//        } else if (node.getName().equals("TM")) {
+//            String res = documentPO.getEvidence();
+//            //若不是第一个，加上顿号
+//            if (!documentPO.getEvidence().endsWith("：")) {
+//                res += "、";
+//            }
+//            res += node.attributeValue("value") + "条";
+//            documentPO.setEvidence(res);
+//        } else if (node.getName().equals("KM")) {
+//            String res = documentPO.getEvidence();
+//            res += node.attributeValue("value");
+//            documentPO.setEvidence(res);
+//        }
+        else if (node.getName().equals("CUS_FLFT_RY")){
+            documentPO.setEvidence(node.attributeValue("value"));
+        }
+        else if (node.getName().equals("CPFXGC")){
             documentPO.setJudgeReason(node.attributeValue("value"));
-        } else if (node.getName().equals("CPJG")){
-            String res = documentPO.getJudgeReason();
-            documentPO.setJudgeReason(res+node.attributeValue("value"));
         }
 
         //同时迭代当前节点下面的所有子节点
@@ -155,7 +192,7 @@ public class XMLAnalyse {
         Iterator<Element> iterator = node.elementIterator();
         while (iterator.hasNext()) {
             Element e = iterator.next();
-            listNodes(e, documentPO);
+            listNodes(e, documentPO,originPart);
         }
     }
 
@@ -182,6 +219,20 @@ public class XMLAnalyse {
                 }
 //                System.out.println(po);
             }
+        }
+    }
+
+    //原文各个段落组成部分
+    private static class OriginPart{
+        public String dsr;
+        public String ssjl;
+        public String ajjbqk;
+        public String cpfxgc;
+        public String pjjg;
+        public String ww;
+
+        public String origin(){
+            return dsr+ssjl+ajjbqk+cpfxgc+pjjg+ww;
         }
     }
 }

@@ -26,6 +26,8 @@ public class DocumentPO {
     //全文、文尾、裁判时间
     private Date endDate;
     //全文、诉讼参与人全集、（被告、被告）
+    //公诉方
+    private String publicProsecution;
     //当事人
     private String litigant;
     //全文、案件基本情况（nullable）
@@ -139,6 +141,14 @@ public class DocumentPO {
         this.keywords = keywords;
     }
 
+    public String getPublicProsecution() {
+        return publicProsecution;
+    }
+
+    public void setPublicProsecution(String publicProsecution) {
+        this.publicProsecution = publicProsecution;
+    }
+
     @Type(type = "text")
     public String getJudgeReason() {
         return judgeReason;
@@ -152,18 +162,19 @@ public class DocumentPO {
     public String toString() {
         return "DocumentPO{" +
                 "id=" + id +
-                ", originDocument='" + originDocument + '\'' +
-                ", court='" + court + '\'' +
-                ", caseNumber='" + caseNumber + '\'' +
-                ", property='" + property + '\'' +
-                ", reason='" + reason + '\'' +
-                ", process='" + process + '\'' +
-                ", endDate=" + endDate +
-                ", litigant='" + litigant + '\'' +
-                ", situation='" + situation + '\'' +
-                ", evidence='" + evidence + '\'' +
-                ", judgeReason='" + judgeReason + '\'' +
-                ", keywords='" + keywords + '\'' +
+                ", originDocument='" + originDocument + '\'' +'\n'+
+                ", court='" + court + '\'' + '\n'+
+                ", caseNumber='" + caseNumber + '\'' + '\n'+
+                ", property='" + property + '\'' + '\n'+
+                ", reason='" + reason + '\'' + '\n'+
+                ", process='" + process + '\'' + '\n'+
+                ", endDate=" + endDate + '\n'+
+                ", publicProsecution='" + publicProsecution + '\'' + '\n'+
+                ", litigant='" + litigant + '\'' + '\n'+
+                ", situation='" + situation + '\'' + '\n'+
+                ", evidence='" + evidence + '\'' + '\n'+
+                ", judgeReason='" + judgeReason + '\'' + '\n'+
+                ", keywords='" + keywords + '\'' + '\n'+
                 '}';
     }
 }
