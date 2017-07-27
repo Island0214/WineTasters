@@ -36,7 +36,7 @@ public class XMLAnalyse {
         documentPO = new DocumentPO();
         OriginPart originPart = new OriginPart();
         listNodes(root, documentPO,originPart);
-        System.out.println(x++);
+//        System.out.println(x++);
         return documentPO;
     }
 
@@ -47,8 +47,10 @@ public class XMLAnalyse {
             originPart.dsr = node.attributeValue("value")+'\n';
         }else if (node.getName().equals("AJJBQK")) {
             originPart.ajjbqk = node.attributeValue("value")+'\n';
+            documentPO.setSituation(node.attributeValue("value"));
         }else if (node.getName().equals("CPFXGC")) {
             originPart.cpfxgc = node.attributeValue("value")+'\n';
+            documentPO.setJudgeReason(node.attributeValue("value"));
         }else if (node.getName().equals("PJJG")) {
             originPart.pjjg = node.attributeValue("value")+'\n';
             documentPO.setJudgeReason(originPart.cpfxgc+originPart.pjjg);
@@ -154,10 +156,6 @@ public class XMLAnalyse {
                 break;
             }
         }
-        //案件基本情况
-        else if (node.getName().equals("AJJBQK")) {
-            documentPO.setSituation(node.attributeValue("value"));
-        }
         //依据
 //        else if (node.getName().equals("FLFTMC")) {
 //            if (documentPO.getEvidence() == null) {
@@ -182,9 +180,6 @@ public class XMLAnalyse {
 //        }
         else if (node.getName().equals("CUS_FLFT_RY")){
             documentPO.setEvidence(node.attributeValue("value"));
-        }
-        else if (node.getName().equals("CPFXGC")){
-            documentPO.setJudgeReason(node.attributeValue("value"));
         }
 
         //同时迭代当前节点下面的所有子节点
@@ -213,11 +208,11 @@ public class XMLAnalyse {
             for (File file : files) {
                 DocumentPO po = XMLAnalyse.readXMLFile(file);
                 po.setProperty("刑事案件");
-                po.setKeywords(extractKeyword.extractKeyword(po.getOriginDocument(),po.getLitigant().split("、")));
-//                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
-//                    documentDao.saveDocument(po);
-//                }
-                System.out.println(po);
+                po.setKeywords(extractKeyword.extractKeyword(po.getOriginDocument(),po.getLitigant()==null?new String[0]:po.getLitigant().split("、")));
+                if (documentDao.getDocumentByCaseNumber(po.getCaseNumber())==null){
+                    documentDao.saveDocument(po);
+                }
+//                System.out.println(po);
             }
         }
     }
