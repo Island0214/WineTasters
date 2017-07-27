@@ -19,25 +19,25 @@
         window.scrollTo(0, 1);
     } </script>
     <!-- bootstrap-css -->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--// bootstrap-css -->
     <!-- css -->
-    <link rel="stylesheet" href="../css/alert.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/searchForm.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/signin_out.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/user.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/alert.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/searchForm.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/signin_out.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/user.css" type="text/css" media="all"/>
     <!--// css -->
     <!-- font-awesome icons -->
-    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
           rel="stylesheet">
     <!-- //font -->
-    <script src="../js/jquery-1.11.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
@@ -59,10 +59,10 @@
 <div class="banner">
     <div class="header">
         <div id="preLog" class="sign_in_logo">
-            <a href="#log" title="登录" onclick="showLoginView()"><img src="../images/login.png" alt="" width="25px"
+            <a href="#log" title="登录" onclick="showLoginView()"><img src="images/login.png" alt="" width="25px"
                                                                      height="25px"></a>
             |
-            <a href="#sign" title="注册" onclick="showSigninView()"><img src="../images/signup.png" alt="" width="25px"
+            <a href="#sign" title="注册" onclick="showSigninView()"><img src="images/signup.png" alt="" width="25px"
                                                                        height="25px"></a>
         </div>
         <div id="afterLog" class="sign_in_logo" style="display: none">
@@ -111,7 +111,7 @@
                             <li><a href="views/civilCase.jsp">刑事案件</a></li>
                             <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
                             <li class="dropdown">
-                                <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">About
+                                <a href="codes.html" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">关于（暂无）
                                     <!-- <b class="caret"></b> -->
                                 </a>
                                 <!-- <ul class="dropdown-menu">
@@ -119,7 +119,7 @@
                                     <li><a href="#">Short Codes</a></li>
                                 </ul> -->
                             </li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">联系（暂无）</a></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -208,24 +208,24 @@
                 <div class="agile-post-grids">
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
-                            <a href="single.html">
-                                <img src="../images/img1.jpg" alt=""/>
+                            <a href="javascript:volid(0);">
+                                <img src="images/img1.jpg" alt=""/>
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
-                            <h5><a href="single.html">Nulla at arcu eu justo blandit.</a></h5>
+                            <h5><a href="#">Nulla at arcu eu justo blandit.</a></h5>
                             <p><i class="fa fa-calendar-o" aria-hidden="true"></i> 03 Jan 2017</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="agile-post-grid">
                         <div class="col-md-5 agile-post-left">
-                            <a href="single.html">
-                                <img src="../images/img2.jpg" alt=""/>
+                            <a href="javascript:volid(0);" disabled="true">
+                                <img src="images/img2.jpg" alt=""/>
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
-                            <h5><a href="single.html">Nulla at arcu eu justo blandit.</a></h5>
+                            <h5><a href="#">Nulla at arcu eu justo blandit.</a></h5>
                             <p><i class="fa fa-calendar-o" aria-hidden="true"></i> 24 Jan 2017</p>
                         </div>
                         <div class="clearfix"></div>
@@ -235,9 +235,9 @@
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="views/civilCase.jsp">民事案件</a></li>
+                    <li><a href="views/civilCase.jsp">刑事案件</a></li>
                     <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
-                    <li><a href="#">Icons</a></li>
+                    <%--<li><a href="#">Icons</a></li>--%>
                 </ul>
             </div>
             <div class="col-md-3 w3ls-footer-grid">
@@ -262,15 +262,15 @@
     </div>
 </div>
 <!-- //copyright -->
-<script type="text/javascript" src="../js/alert.js"></script>
-<script src="../js/responsiveslides.min.js"></script>
-<script src="../js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="../js/move-top.js"></script>
-<script type="text/javascript" src="../js/easing.js"></script>
-<script type="text/javascript" src="../js/user.js"></script>
-<script type="text/javascript" src="../js/search.js"></script>
-<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
-<script type="text/javascript" src="../js/cookie.js"></script>
+<script type="text/javascript" src="js/alert.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function () {

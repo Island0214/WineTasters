@@ -49,6 +49,7 @@
     rgba(80, 80, 80, 0.09) 3px 3px,
     rgba(80, 80, 80, 0.04) 4px 4px,
     rgba(80, 80, 80, 0.06) 5px 5px;
+    line-height: 22px;
 }
 .case_item p {
     display: inline;
