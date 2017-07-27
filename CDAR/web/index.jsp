@@ -213,7 +213,7 @@
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
-                            <h5><a href="single.html">Nulla at arcu eu justo blandit.</a></h5>
+                            <h5><a href="#">Nulla at arcu eu justo blandit.</a></h5>
                             <p><i class="fa fa-calendar-o" aria-hidden="true"></i> 03 Jan 2017</p>
                         </div>
                         <div class="clearfix"></div>
@@ -225,7 +225,7 @@
                             </a>
                         </div>
                         <div class="col-md-7 agile-post-right">
-                            <h5><a href="single.html">Nulla at arcu eu justo blandit.</a></h5>
+                            <h5><a href="#">Nulla at arcu eu justo blandit.</a></h5>
                             <p><i class="fa fa-calendar-o" aria-hidden="true"></i> 24 Jan 2017</p>
                         </div>
                         <div class="clearfix"></div>
@@ -235,7 +235,7 @@
             <div class="col-md-3 w3ls-footer-grid">
                 <h4>本站 <span>导航</span></h4>
                 <ul>
-                    <li><a href="views/civilCase.jsp">民事案件</a></li>
+                    <li><a href="views/civilCase.jsp">刑事案件</a></li>
                     <li><a href="views/analyzeDoc.jsp">查询类案</a></li>
                     <%--<li><a href="#">Icons</a></li>--%>
                 </ul>
