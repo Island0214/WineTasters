@@ -1,0 +1,2 @@
+git仓库地址: https://github.com/Snow-96/WineTasters
+项目访问地址: http://120.27.199.164:8080/CDAR/
